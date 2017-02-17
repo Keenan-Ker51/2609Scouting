@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECEFF1"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+
+    tools:context="com.keenanker.a2609scouting.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Please select your role "
+        android:layout_centerHorizontal="true"
+        android:textColor="#212121"
+        android:textSize="24sp"
+        android:background="@drawable/shadow_text"
+        />
+
+    <Button
+        android:layout_width="125sp"
+        android:layout_height="48sp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Human Scout"
+        android:onClick="humanScoutStart"
+        android:layout_marginTop="8sp"
+        android:layout_marginBottom="8sp"
+        android:background="@drawable/background_white"
+        android:id="@+id/humanScoutButton"
+        />
+
+    <Button
+        android:layout_width="125sp"
+        android:layout_height="48sp"
+        android:layout_centerHorizontal="true"
+        android:onClick="mentorStart"
+        android:id="@+id/mentorButton"
+        android:layout_marginBottom="8sp"
+        android:background="@drawable/background_white"
+        android:layout_below="@+id/humanScoutButton"
+        android:text="Mentor"/>
+
+    <Button
+        android:layout_width="125sp"
+        android:layout_height="48sp"
+        android:layout_centerHorizontal="true"
+        android:onClick="pitStart"
+        android:id="@+id/pitButton"
+        android:background="@drawable/background_white"
+        android:layout_below="@+id/mentorButton"
+        android:text="Pit Scout"/>
+
+
+    <Button
+        android:layout_width="125sp"
+        android:layout_height="48sp"
+        android:id="@+id/scoutButton"
+        android:onClick="scoutStart"
+        android:background="@drawable/background_white"
+        android:text="Scout"
+        android:layout_above="@+id/humanScoutButton"
+        android:layout_alignStart="@+id/humanScoutButton" />
+</RelativeLayout>

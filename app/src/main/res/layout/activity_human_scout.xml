@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mentor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECEFF1"
+    tools:context="com.keenanker.a2609scouting.MentorActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="96sp"
+                android:layout_height="36sp"
+                android:background="@drawable/background_white"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:id="@+id/matchNum"
+                android:hint="Match Num"
+                android:inputType="number"
+                android:layout_marginTop="8sp"
+                />
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4sp"
+                android:layout_below="@id/matchNum"
+                android:id="@+id/commentsGL"
+                >
+
+                <EditText
+                    android:layout_width="92sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:hint="Team Number"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:layout_marginEnd="4sp"
+                    android:id="@+id/teamOneNum"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"/>
+
+                <EditText
+                    android:layout_width="92sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:hint="Team Number"
+                    android:id="@+id/teamTwoNum"
+                    android:inputType="numberDecimal"
+                    android:layout_marginStart="4sp"
+                    android:gravity="center_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"/>
+
+
+                <EditText
+                    android:layout_width="150sp"
+                    android:layout_height="125sp"
+                    android:id="@+id/teamOneComments"
+                    android:background="@drawable/background_white"
+                    android:layout_marginEnd="4sp"
+                    android:layout_column="0"
+                    android:hint="Comments"
+                    android:gravity="center_horizontal"
+                    android:layout_row="1"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    />
+
+                <EditText
+                    android:layout_width="150sp"
+                    android:layout_height="125sp"
+                    android:background="@drawable/background_white"
+                    android:layout_column="1"
+                    android:hint="Comments"
+                    android:layout_row="1"
+                    android:layout_marginStart="4sp"
+                    android:gravity="center_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/teamTwoComments" />
+
+                <EditText
+                    android:layout_width="92sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white"
+                    android:layout_column="0"
+                    android:layout_row="3"
+                    android:hint="Team Number"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/teamThreeNum"
+                    android:layout_marginEnd="4sp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"/>
+
+                <EditText
+                    android:layout_width="92sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white"
+                    android:layout_column="1"
+                    android:layout_row="3"
+                    android:hint="Team Number"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/teamFourNum"
+                    android:layout_marginStart="4sp"
+                    android:gravity="center_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"/>
+
+
+                <EditText
+                    android:layout_width="150sp"
+                    android:layout_height="125sp"
+                    android:background="@drawable/background_white"
+                    android:layout_marginEnd="4sp"
+                    android:layout_column="0"
+                    android:hint="Comments"
+                    android:id="@+id/teamThreeComments"
+                    android:gravity="center_horizontal"
+                    android:layout_row="4"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    />
+
+                <EditText
+                    android:layout_width="150sp"
+                    android:layout_height="125sp"
+                    android:background="@drawable/background_white"
+                    android:layout_column="1"
+                    android:hint="Comments"
+                    android:layout_row="4"
+                    android:layout_marginStart="4sp"
+                    android:gravity="center_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/teamFourComments" />
+            </GridLayout>
+
+            <EditText
+                android:layout_width="100sp"
+                android:layout_height="36sp"
+                android:id="@+id/scoutName"
+                android:background="@drawable/background_white"
+                android:gravity="center_horizontal"
+                android:hint="Name"
+                android:layout_marginBottom="8sp"
+                android:layout_below="@+id/commentsGL"
+                android:layout_centerHorizontal="true"
+                />
+
+            <Button
+                android:layout_width="96sp"
+                android:layout_height="48sp"
+                android:id="@+id/clearButton"
+                android:text="Clear"
+                android:onClick="clearButton"
+                android:background="@drawable/background_white_red_outline"
+                android:layout_marginBottom="16sp"
+                android:layout_below="@id/scoutName"/>
+
+            <Button
+                android:layout_width="96sp"
+                android:layout_height="48sp"
+                android:id="@+id/saveveButton"
+                android:text="save"
+                android:background="@drawable/background_white_green_outline"
+                android:layout_alignParentEnd="true"
+                android:onClick="saveButton"
+                android:layout_below="@id/scoutName"/>
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
