@@ -9,11 +9,42 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ECEFF1">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#100303"
+                android:id="@+id/introTV"
+                android:layout_marginTop="8sp"
+                android:text="Welcome to the pit scout area"/>
+            <EditText
+                android:layout_width="92sp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/introTV"
+                android:hint="Name"
+                android:id="@+id/nameET"
+                android:layout_marginTop="8sp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/shadow_text"
+                />
+            <EditText
+                android:layout_width="160sp"
+                android:layout_height="120sp"
+                android:layout_below="@id/nameET"
+                android:layout_centerHorizontal="true"
+                android:hint="Gear Ratio"
+                android:layout_marginTop="8sp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/background_white"
+                />
 
 
         </RelativeLayout>

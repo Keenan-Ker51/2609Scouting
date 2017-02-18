@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), MentorActivity.class);
         startActivity(i);
     }
+    public void pitStart (View view){
+        Intent i = new Intent(getApplicationContext(), PitActivity.class);
+        startActivity(i);
+    }
 
     public  boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
