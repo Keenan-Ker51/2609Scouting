@@ -49,6 +49,10 @@ public class MentorActivity extends AppCompatActivity {
     EditText totalRotorET;
     RadioGroup furnaceGroup;
     EditText kpaRemaining;
+    RadioGroup redAutoRotors;
+    EditText redTotalRotorET;
+    RadioGroup redFurnaceGroup;
+    EditText redKpaRemaining;
 
 
     Button saveButton;
@@ -63,7 +67,8 @@ public class MentorActivity extends AppCompatActivity {
 
     String autoRotor;
     String furnaceCheck;
-
+    String redAutoRotor;
+    String redFurnaceCheck;
 
     public void makeMaster(){
 
@@ -76,7 +81,7 @@ public class MentorActivity extends AppCompatActivity {
                 ","+ teamFiveNum.getText().toString() + ","+  teamFiveComments.getText().toString() +
                 ","+ teamSixNum.getText().toString() + ","+  teamSixComments.getText().toString() + ","+
                 autoRotor+","+totalRotorET.getText().toString()+","+furnaceCheck+","+kpaRemaining.getText().toString()+
-                "," + mentorName.getText();
+                "," + redTotalRotorET.getText().toString()+ ","+redKpaRemaining+","+mentorName.getText();
 
     }
 
@@ -180,6 +185,43 @@ public class MentorActivity extends AppCompatActivity {
         }
     }
 
+    public void redAutoRotorCheck(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.redAutoRotorNo:
+                if (checked)
+                    redAutoRotor = "0";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.redAutoRotorSucc:
+                if (checked)
+                    redAutoRotor = "2";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+    public void redFurnaceCheck(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.redFurnaceNo:
+                if (checked)
+                    redFurnaceCheck = "0";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.redFurnaceSucc:
+                if (checked)
+                    redFurnaceCheck = "2";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+
 
 
     @Override
@@ -206,6 +248,8 @@ public class MentorActivity extends AppCompatActivity {
 
         kpaRemaining = (EditText) findViewById(R.id.kpaRemainET);
         totalRotorET = (EditText) findViewById(R.id.rotorCountET);
+        redKpaRemaining = (EditText) findViewById(R.id.redKpaRemainET);
+        redTotalRotorET = (EditText) findViewById(R.id.redRotorCountET);
 
 
     }

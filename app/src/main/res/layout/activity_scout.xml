@@ -119,6 +119,38 @@
                 android:onClick="liftoffAddF"
                 android:text="+"
                 android:visibility="invisible" />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/liftGroup"
+                android:layout_below="@+id/liftTV"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/background_white"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Didn't try"
+                    android:id="@+id/gearDidntTry"
+                    android:onClick="onGearButtonClicked"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tried"
+                    android:onClick="onGearButtonClicked"
+                    android:id="@+id/gearTried"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gearSucc"
+                    android:onClick="onGearButtonClicked"
+                    android:text="Success "/>
+            </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -227,38 +259,7 @@
                 android:background="@drawable/background_white_green_outline"
                 android:text="Save" />
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/liftGroup"
-                android:layout_below="@+id/liftTV"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/background_white"
-                android:orientation="horizontal"
-                >
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Didn't try"
-                    android:id="@+id/gearDidntTry"
-                    android:onClick="onGearButtonClicked"
-                    />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tried"
-                    android:onClick="onGearButtonClicked"
-                    android:id="@+id/gearTried"
-                    />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/gearSucc"
-                    android:onClick="onGearButtonClicked"
-                    android:text="Success "/>
-            </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
