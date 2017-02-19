@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -22,6 +23,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -124,11 +126,18 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     String scoutPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/ScoutingData";
 
 
+
+    Chronometer chronometer;
+    int seconds;
+
+
     RadioGroup rg1;
     RadioGroup rg2;
 
 
     int liftPos;
+
+    float saveTime;
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         return false;
@@ -272,6 +281,18 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         }
     }
 
+    public void timerStart(View view){
+        chronometer.setBase(0);
+        chronometer.start();
+    }
+    public void timerStop(View view){
+        chronometer.stop();
+
+        saveTime = SystemClock.elapsedRealtime() - chronometer.getBase();
+
+        seconds = (int)(saveTime/1000 % 60);
+    }
+
     public void makeMaster() {
         titleString = "Match" + matchNum.getText().toString()+ alliance + teamNum.getText().toString();
 
@@ -279,7 +300,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
                 "," + gearString + "," + lowAutoCount + "," + highAutoCount + "," + "," + gearTeleCount +
                 "," + lowTeleCount + "," + highTeleCount + "," + "," + liftOffString
                 + "," + comments.getText().toString() + "," + humanComments.getText().toString() +
-                "," + scoutName.getText().toString()+","+alliance;
+                "," + scoutName.getText().toString()+","+alliance+String.valueOf(seconds);
 
         scoutString = scoutName.getText().toString();
 
@@ -542,6 +563,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         rg2.clearCheck();
         rg1.setOnCheckedChangeListener(listener1);
         rg2.setOnCheckedChangeListener(listener2);
+
+        chronometer = (Chronometer) findViewById(R.id.liftTimer);
 
         makeFolder();
 

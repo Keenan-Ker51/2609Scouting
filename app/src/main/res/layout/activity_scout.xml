@@ -121,10 +121,49 @@
                 android:visibility="invisible" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timeIntroTV"
+                android:textColor="#100303"
+                android:layout_below="@id/liftGroup"
+                android:layout_centerHorizontal="true"
+                android:text="Time Taken"
+                />
+
+            <Chronometer
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#100303"
+                android:id="@+id/liftTimer"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/timeIntroTV"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="48sp"
+                android:id="@+id/timerStart"
+                android:text="Start"
+                android:onClick="timerStart"
+                android:layout_toStartOf="@id/timeIntroTV"
+                android:layout_alignTop="@id/liftTimer"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="48sp"
+                android:id="@+id/timerStop"
+                android:text="Stop"
+                android:onClick="timerStop"
+                android:layout_toEndOf="@id/timeIntroTV"
+                android:layout_alignTop="@id/liftTimer"
+                />
+
+            <TextView
                 android:id="@+id/humanPlayerTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/liftGroup"
+                android:layout_below="@+id/timerStop"
                 android:text="Human Player Comments"
                 android:layout_centerHorizontal="true"
                 android:textColor="#100303" />
