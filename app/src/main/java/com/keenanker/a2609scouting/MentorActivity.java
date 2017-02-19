@@ -59,7 +59,7 @@ public class MentorActivity extends AppCompatActivity {
     File file;
     String[] saveText;
 
-    String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting";
+    String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/Mentor";
 
     String autoRotor;
     String furnaceCheck;
