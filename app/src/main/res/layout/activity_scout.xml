@@ -130,13 +130,14 @@
                 android:text="Time Taken"
                 />
 
-            <Chronometer
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#100303"
                 android:id="@+id/liftTimer"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/timeIntroTV"
+                android:text="0"
                 />
 
             <Button
@@ -145,8 +146,8 @@
                 android:id="@+id/timerStart"
                 android:text="Start"
                 android:onClick="timerStart"
-                android:layout_toStartOf="@id/timeIntroTV"
-                android:layout_alignTop="@id/liftTimer"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8sp"
                 />
 
             <Button
