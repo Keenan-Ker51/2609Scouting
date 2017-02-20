@@ -348,17 +348,18 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     public void timerStop(View view){
 
         finalCount = (String) liftTimer.getText();
+        liftTimer.setText(finalCount);
 
     }
 
     public void makeMaster() {
         titleString = "Match" + matchNum.getText().toString()+ alliance + teamNum.getText().toString();
 
-        masterString = teamNum.getText().toString() + ","+alliance + "," + matchNum.getText().toString() + "," +
-                "," + gearString + "," + lowAutoCount + "," + highAutoCount + "," + "," + gearTeleCount +
-                "," + lowTeleCount + "," + highTeleCount + "," + "," + liftOffString
-                + "," + comments.getText().toString() + "," + humanComments.getText().toString() +
-                "," + scoutName.getText().toString()+","+alliance+finalCount
+        masterString = teamNum.getText().toString() + ";"+alliance + ";" + matchNum.getText().toString() + ";" +
+                ";" + gearString + ";" + lowAutoCount + ";" + highAutoCount  + ";" + gearTeleCount +
+                ";" + lowTeleCount + ";" + highTeleCount + ";" + ";" + liftOffString
+                + ";" + comments.getText().toString() + ";" + humanComments.getText().toString() +
+                ";" + scoutName.getText().toString()+";"+alliance+";"+finalCount
                 ;
 
         scoutString = scoutName.getText().toString();

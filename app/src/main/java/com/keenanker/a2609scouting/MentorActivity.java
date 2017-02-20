@@ -74,14 +74,14 @@ public class MentorActivity extends AppCompatActivity {
 
         titleString = "Mentor"+matchNum.getText().toString() + mentorName.getText();
 
-        masterString = teamOneNum.getText().toString() + ","+  teamOneComments.getText().toString() +
-                "," + teamTwoNum.getText().toString() + ","+  teamTwoComments.getText().toString() +
-                ","+ teamThreeNum.getText().toString() + ","+  teamThreeComments.getText().toString() +
-                ","+ teamFourNum.getText().toString() + ","+  teamFourComments.getText().toString() +
-                ","+ teamFiveNum.getText().toString() + ","+  teamFiveComments.getText().toString() +
-                ","+ teamSixNum.getText().toString() + ","+  teamSixComments.getText().toString() + ","+
-                autoRotor+","+totalRotorET.getText().toString()+","+furnaceCheck+","+kpaRemaining.getText().toString()+
-                "," + redTotalRotorET.getText().toString()+ ","+redKpaRemaining+","+mentorName.getText();
+        masterString = teamOneNum.getText().toString() + ";"+  teamOneComments.getText().toString() +
+                ";" + teamTwoNum.getText().toString() + ";"+  teamTwoComments.getText().toString() +
+                ";"+ teamThreeNum.getText().toString() + ";"+  teamThreeComments.getText().toString() +
+                ";"+ teamFourNum.getText().toString() + ";"+  teamFourComments.getText().toString() +
+                ";"+ teamFiveNum.getText().toString() + ",;"+  teamFiveComments.getText().toString() +
+                ";"+ teamSixNum.getText().toString() + ";"+  teamSixComments.getText().toString() + ";"+
+                autoRotor+";"+totalRotorET.getText().toString()+";"+furnaceCheck+";"+kpaRemaining.getText().toString()+
+                ";" + redTotalRotorET.getText().toString()+ ";"+redKpaRemaining+";"+mentorName.getText();
 
     }
 
