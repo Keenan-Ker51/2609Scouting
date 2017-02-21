@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Point;
+import android.os.CountDownTimer;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -22,6 +24,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -105,6 +108,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     String[] scoutSaveText;
     int totalScore;
 
+    TextView liftTimer;
+
     Spinner liftoffDropdown;
     String[] liftoffDropItems;
     Spinner gearDropdown;
@@ -124,11 +129,24 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     String scoutPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/ScoutingData";
 
 
+
+    Chronometer chronometer;
+    //long millisecondsUntilDone;
+    int seconds;
+
+
     RadioGroup rg1;
     RadioGroup rg2;
 
 
     int liftPos;
+
+    float saveTime;
+    Boolean counterIsActive = false;
+    CountDownTimer countDownTimer;
+    String secondString;
+    String finalCount;
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         return false;
@@ -191,6 +209,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         //Log.i("teamnum is", teamNum.getText().toString());
     }
 
+
     //Stuff that will hopefully read the drop downs
 
     public void onGearButtonClicked(View view) {
@@ -201,17 +220,17 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.gearDidntTry:
                 if (checked)
-                    gearString = "Did not attempt";
+                    gearString = "0";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.gearTried:
                 if (checked)
-                    gearString = "Tried but failed";
+                    gearString = "1";
                 //Toast.makeText(this, "Tried but failed", Toast.LENGTH_LONG).show();
                 break;
             case R.id.gearSucc:
                 if (checked)
-                    gearString = "Succeeded";
+                    gearString = "2";
                 Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
@@ -256,30 +275,92 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.liftDidntTry:
                 if (checked)
-                    liftOffString = "Did not attempt";
+                    liftOffString = "0";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.liftTried:
                 if (checked)
-                    liftOffString = "Tried but failed";
+                    liftOffString = "1";
                 //Toast.makeText(this, "Tried but failed", Toast.LENGTH_LONG).show();
                 break;
             case R.id.liftSucc:
                 if (checked)
-                    liftOffString = "Succeeded";
+                    liftOffString = "2";
                 Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
 
+    public void timerStart(View view){
+
+        if (counterIsActive == false) {
+
+            counterIsActive = true;
+            //timerSeekBar.setEnabled(false);
+            //controllerButton.setText("Stop");
+
+            countDownTimer = new CountDownTimer(135000 + 100, 1000) {
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                    updateTimer((int) millisUntilFinished / 1000);
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                    //resetTimer();
+                    //MediaPlayer mplayer = MediaPlayer.create(getApplicationContext(), R.raw.airhorn);
+                    //mplayer.start();
+
+                }
+            }.start();
+
+        } else {
+
+            //resetTimer();
+            return;
+
+        }
+        //chronometer.setBase(0);
+        //chronometer.start();
+    }
+
+    public void updateTimer(int secondsLeft) {
+
+        //int minutes = (int) secondsLeft / 60;
+        int seconds = secondsLeft;
+
+        secondString = Integer.toString(seconds);
+
+        if (seconds <= 9) {
+
+            secondString = "0" + secondString;
+
+        }
+
+
+        liftTimer.setText(secondString);
+
+    }
+    public void timerStop(View view){
+
+        finalCount = (String) liftTimer.getText();
+        liftTimer.setText(finalCount);
+
+    }
+
     public void makeMaster() {
         titleString = "Match" + matchNum.getText().toString()+ alliance + teamNum.getText().toString();
 
-        masterString = teamNum.getText().toString() + ","+alliance + "," + matchNum.getText().toString() + "," +
-                "," + gearString + "," + lowAutoCount + "," + highAutoCount + "," + "," + gearTeleCount +
-                "," + lowTeleCount + "," + highTeleCount + "," + "," + liftOffString
-                + "," + comments.getText().toString() + "," + humanComments.getText().toString() +
-                "," + scoutName.getText().toString()+","+alliance;
+        masterString = teamNum.getText().toString() + ";"+alliance + ";" + matchNum.getText().toString() + ";" +
+                ";" + gearString + ";" + lowAutoCount + ";" + highAutoCount  + ";" + gearTeleCount +
+                ";" + lowTeleCount + ";" + highTeleCount + ";" + ";" + liftOffString
+                + ";" + comments.getText().toString() + ";" + humanComments.getText().toString() +
+                ";" + scoutName.getText().toString()+";"+alliance+";"+finalCount
+                ;
 
         scoutString = scoutName.getText().toString();
 
@@ -542,6 +623,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         rg2.clearCheck();
         rg1.setOnCheckedChangeListener(listener1);
         rg2.setOnCheckedChangeListener(listener2);
+
+        liftTimer = (TextView) findViewById(R.id.liftTimer);
 
         makeFolder();
 

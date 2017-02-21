@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.io.File;
@@ -43,6 +45,16 @@ public class MentorActivity extends AppCompatActivity {
     EditText teamSixComments;
     EditText mentorName;
     EditText matchNum;
+    RadioGroup autoRotors;
+    EditText totalRotorET;
+    RadioGroup furnaceGroup;
+    EditText kpaRemaining;
+    RadioGroup redAutoRotors;
+    EditText redTotalRotorET;
+    RadioGroup redFurnaceGroup;
+    EditText redKpaRemaining;
+
+
     Button saveButton;
     Button clearButton;
     String masterString;
@@ -51,20 +63,25 @@ public class MentorActivity extends AppCompatActivity {
     File file;
     String[] saveText;
 
-    String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting";
+    String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/Mentor";
 
+    String autoRotor;
+    String furnaceCheck;
+    String redAutoRotor;
+    String redFurnaceCheck;
 
     public void makeMaster(){
 
-        titleString = matchNum.getText().toString() + mentorName.getText();
+        titleString = "Mentor"+matchNum.getText().toString() + mentorName.getText();
 
-        masterString = teamOneNum.getText().toString() + "\n"+  teamOneComments.getText().toString() +
-                "\n" + teamTwoNum.getText().toString() + "\n"+  teamTwoComments.getText().toString() +
-                "\n"+ teamThreeNum.getText().toString() + "\n"+  teamThreeComments.getText().toString() +
-                "\n"+ teamFourNum.getText().toString() + "\n"+  teamFourComments.getText().toString() +
-                "\n"+ teamFiveNum.getText().toString() + "\n"+  teamFiveComments.getText().toString() +
-                "\n"+ teamSixNum.getText().toString() + "\n"+  teamSixComments.getText().toString() +
-                "\n"; mentorName.getText();
+        masterString = teamOneNum.getText().toString() + ";"+  teamOneComments.getText().toString() +
+                ";" + teamTwoNum.getText().toString() + ";"+  teamTwoComments.getText().toString() +
+                ";"+ teamThreeNum.getText().toString() + ";"+  teamThreeComments.getText().toString() +
+                ";"+ teamFourNum.getText().toString() + ";"+  teamFourComments.getText().toString() +
+                ";"+ teamFiveNum.getText().toString() + ",;"+  teamFiveComments.getText().toString() +
+                ";"+ teamSixNum.getText().toString() + ";"+  teamSixComments.getText().toString() + ";"+
+                autoRotor+";"+totalRotorET.getText().toString()+";"+furnaceCheck+";"+kpaRemaining.getText().toString()+
+                ";" + redTotalRotorET.getText().toString()+ ";"+redKpaRemaining+";"+mentorName.getText();
 
     }
 
@@ -131,6 +148,81 @@ public class MentorActivity extends AppCompatActivity {
 
     }
 
+    public void autoRotorCheck(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.autoRotorNo:
+                if (checked)
+                    autoRotor = "0";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.autoRotorSucc:
+                if (checked)
+                    autoRotor = "2";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+    public void furnaceCheck(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.furnaceNo:
+                if (checked)
+                    furnaceCheck = "0";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.furnaceSucc:
+                if (checked)
+                    furnaceCheck = "2";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+
+    public void redAutoRotorCheck(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.redAutoRotorNo:
+                if (checked)
+                    redAutoRotor = "0";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.redAutoRotorSucc:
+                if (checked)
+                    redAutoRotor = "2";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+    public void redFurnaceCheck(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.redFurnaceNo:
+                if (checked)
+                    redFurnaceCheck = "0";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.redFurnaceSucc:
+                if (checked)
+                    redFurnaceCheck = "2";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,6 +245,11 @@ public class MentorActivity extends AppCompatActivity {
         saveButton = (Button) findViewById(R.id.saveveButton);
         mentorName = (EditText) findViewById(R.id.mentorName);
         matchNum = (EditText) findViewById(R.id.matchNum);
+
+        kpaRemaining = (EditText) findViewById(R.id.kpaRemainET);
+        totalRotorET = (EditText) findViewById(R.id.rotorCountET);
+        redKpaRemaining = (EditText) findViewById(R.id.redKpaRemainET);
+        redTotalRotorET = (EditText) findViewById(R.id.redRotorCountET);
 
 
     }

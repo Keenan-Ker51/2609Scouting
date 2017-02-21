@@ -39,7 +39,7 @@
                 <EditText
                     android:layout_width="92sp"
                     android:layout_height="36sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_outline_blue"
                     android:layout_column="0"
                     android:layout_row="0"
                     android:hint="Team Number"
@@ -53,7 +53,7 @@
                 <EditText
                     android:layout_width="92sp"
                     android:layout_height="36sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_red_outline"
                     android:layout_column="1"
                     android:layout_row="0"
                     android:hint="Team Number"
@@ -69,7 +69,7 @@
                     android:layout_width="150sp"
                     android:layout_height="125sp"
                     android:id="@+id/teamOneComments"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_outline_blue"
                     android:layout_marginEnd="4sp"
                     android:layout_column="0"
                     android:hint="Comments"
@@ -82,7 +82,7 @@
                 <EditText
                     android:layout_width="150sp"
                     android:layout_height="125sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_red_outline"
                     android:layout_column="1"
                     android:hint="Comments"
                     android:layout_row="1"
@@ -95,7 +95,7 @@
                 <EditText
                     android:layout_width="92sp"
                     android:layout_height="36sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_outline_blue"
                     android:layout_column="0"
                     android:layout_row="3"
                     android:hint="Team Number"
@@ -109,7 +109,7 @@
                 <EditText
                     android:layout_width="92sp"
                     android:layout_height="36sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_red_outline"
                     android:layout_column="1"
                     android:layout_row="3"
                     android:hint="Team Number"
@@ -124,7 +124,7 @@
                 <EditText
                     android:layout_width="150sp"
                     android:layout_height="125sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_outline_blue"
                     android:layout_marginEnd="4sp"
                     android:layout_column="0"
                     android:hint="Comments"
@@ -138,7 +138,7 @@
                 <EditText
                     android:layout_width="150sp"
                     android:layout_height="125sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_red_outline"
                     android:layout_column="1"
                     android:hint="Comments"
                     android:layout_row="4"
@@ -151,7 +151,7 @@
                 <EditText
                     android:layout_width="92sp"
                     android:layout_height="36sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_outline_blue"
                     android:layout_column="0"
                     android:layout_row="5"
                     android:hint="Team Number"
@@ -165,7 +165,7 @@
                 <EditText
                     android:layout_width="92sp"
                     android:layout_height="36sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_red_outline"
                     android:layout_column="1"
                     android:layout_row="5"
                     android:hint="Team Number"
@@ -180,7 +180,7 @@
                 <EditText
                     android:layout_width="150sp"
                     android:layout_height="125sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_outline_blue"
                     android:layout_marginEnd="4sp"
                     android:layout_column="0"
                     android:hint="Comments"
@@ -194,7 +194,7 @@
                 <EditText
                     android:layout_width="150sp"
                     android:layout_height="125sp"
-                    android:background="@drawable/background_white"
+                    android:background="@drawable/background_white_red_outline"
                     android:layout_column="1"
                     android:hint="Comments"
                     android:layout_row="6"
@@ -205,6 +205,210 @@
                     android:id="@+id/teamSixComments" />
             </GridLayout>
 
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/commentsGL"
+                android:foregroundGravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/endGameGL">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#100303"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:id="@+id/autoRotorTV"
+                    android:text="Auto Rotors"
+                    />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/autoRotorGroup"
+                    android:background="@drawable/background_white_outline_blue"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_marginBottom="8sp"
+                    >
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:id="@+id/autoRotorSucc"
+                        android:onClick="autoRotorCheck"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No "
+                        android:id="@+id/autoRotorNo"
+                        android:onClick="autoRotorCheck"/>
+                </RadioGroup>
+
+                <EditText
+                    android:layout_width="126sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white_outline_blue"
+                    android:layout_column="0"
+                    android:layout_row="2"
+                    android:id="@+id/rotorCountET"
+                    android:inputType="number"
+                    android:gravity="center_horizontal"
+                    android:hint="Rotor Spinning"
+                    android:layout_marginBottom="8sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#100303"
+                    android:layout_column="0"
+                    android:layout_row="3"
+                    android:id="@+id/furnaceTV"
+                    android:text="Furnace Triggered"
+                    />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/furnaceGroup"
+                    android:layout_column="0"
+                    android:layout_row="4"
+                    android:background="@drawable/background_white_outline_blue"
+                    android:layout_marginBottom="8sp"
+                    >
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:id="@+id/furnaceSucc"
+                        android:onClick="furnaceCheck"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No "
+                        android:id="@+id/furnaceNo"
+                        android:onClick="furnaceCheck"/>
+                </RadioGroup>
+
+                <EditText
+                    android:layout_width="126sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white_outline_blue"
+                    android:hint="kPa Remaining"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/kpaRemainET"
+                    android:layout_column="0"
+                    android:layout_row="5"
+                    android:inputType="number"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#100303"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:id="@+id/redAutoRotorTV"
+                    android:text="Auto Rotors"
+                    />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/redAutoRotorGroup"
+                    android:background="@drawable/background_white_red_outline"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:layout_marginBottom="8sp"
+                    >
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:id="@+id/redAutoRotorSucc"
+                        android:onClick="redAutoRotorCheck"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No "
+                        android:id="@+id/redAutoRotorNo"
+                        android:onClick="redAutoRotorCheck"/>
+                </RadioGroup>
+
+                <EditText
+                    android:layout_width="126sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white_red_outline"
+                    android:layout_column="1"
+                    android:layout_row="2"
+                    android:id="@+id/redRotorCountET"
+                    android:inputType="number"
+                    android:gravity="center_horizontal"
+                    android:hint="Rotor Spinning"
+                    android:layout_marginBottom="8sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#100303"
+                    android:layout_column="1"
+                    android:layout_row="3"
+                    android:id="@+id/redFurnaceTV"
+                    android:text="Furnace Triggered"
+                    />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/redFurnaceGroup"
+                    android:layout_column="1"
+                    android:layout_row="4"
+                    android:background="@drawable/background_white_red_outline"
+                    android:layout_marginBottom="8sp"
+                    >
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:id="@+id/redFurnaceSucc"
+                        android:onClick="redFurnaceCheck"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No "
+                        android:id="@+id/redFurnaceNo"
+                        android:onClick="redFurnaceCheck"/>
+                </RadioGroup>
+
+                <EditText
+                    android:layout_width="126sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white_red_outline"
+                    android:hint="kPa Remaining"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/redKpaRemainET"
+                    android:layout_column="1"
+                    android:layout_row="5"
+                    android:inputType="number"
+                    />
+
+            </GridLayout>
+
+
+
             <EditText
                 android:layout_width="100sp"
                 android:layout_height="36sp"
@@ -213,7 +417,7 @@
                 android:gravity="center_horizontal"
                 android:hint="Name"
                 android:layout_marginBottom="8sp"
-                android:layout_below="@+id/commentsGL"
+                android:layout_below="@+id/endGameGL"
                 android:layout_centerHorizontal="true"
                 />
 
@@ -226,6 +430,7 @@
                 android:background="@drawable/background_white_red_outline"
                 android:layout_marginBottom="16sp"
                 android:layout_below="@id/mentorName"/>
+
 
             <Button
                 android:layout_width="96sp"
