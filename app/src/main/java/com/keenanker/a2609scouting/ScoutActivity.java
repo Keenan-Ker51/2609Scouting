@@ -75,6 +75,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     Button gearAutoLess;
     Button gearTeleAdd;
     Button gearTeleLess;
+    Button gearDroppedTeleAdd;
+    Button gearDroppedTeleLess;
     Button lowAutoLess;
     Button lowAutoAdd;
     Button lowTeleLess;
@@ -87,6 +89,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     Button liftoffAdd;
     TextView gearsAutoCountTV;
     TextView gearsTeleCountTV;
+    TextView gearsDroppedTeleCountTV;
+
     TextView lowAutoCountTV;
     TextView lowTeleCountTV;
     TextView highAutoCountTV;
@@ -98,6 +102,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     int highTeleCount = 0;
     int gearAutoCount = 0;
     int gearTeleCount = 0;
+    int gearDroppedTeleCount = 0;
     int liftoffCount = 0;
     int allianceNumber = 0;
     EditText allianceNumberET;
@@ -359,7 +364,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
                 ";" + gearString + ";" + lowAutoCount + ";" + highAutoCount  + ";" + gearTeleCount +
                 ";" + lowTeleCount + ";" + highTeleCount + ";" + ";" + liftOffString
                 + ";" + comments.getText().toString() + ";" + humanComments.getText().toString() +
-                ";" + scoutName.getText().toString()+";"+alliance+";"+finalCount
+                ";" + scoutName.getText().toString()+";"+alliance+";"+finalCount+";"+gearDroppedTeleCount
                 ;
 
         scoutString = scoutName.getText().toString();
@@ -462,6 +467,22 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         } else {
             gearTeleCount = gearTeleCount - 1;
             gearsTeleCountTV.setText(String.valueOf(gearTeleCount));
+        }
+    }
+    public void gearsDroppedTeleAdd(View view) {
+        if (gearTeleCount == 12) {
+            gearTeleCount = gearTeleCount;
+        } else {
+            gearDroppedTeleCount = gearDroppedTeleCount + 1;
+            gearsDroppedTeleCountTV.setText(String.valueOf(gearDroppedTeleCount));
+        }
+    }
+    public void gearsDroppedTeleLess(View view) {
+        if (gearDroppedTeleCount == 0) {
+            gearDroppedTeleCount = gearDroppedTeleCount;
+        } else {
+            gearDroppedTeleCount = gearDroppedTeleCount - 1;
+            gearsDroppedTeleCountTV.setText(String.valueOf(gearTeleCount));
         }
     }
     public void lowAutoAdd(View view) {
@@ -592,6 +613,10 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         gearTeleAdd = (Button) findViewById(R.id.gearTeleAdd);
         gearTeleLess = (Button) findViewById(R.id.gearTeleLess);
         gearsTeleCountTV = (TextView) findViewById(R.id.gearCountTVTele);
+
+        gearDroppedTeleAdd = (Button) findViewById(R.id.gearDroppedTeleAdd);
+        gearDroppedTeleLess = (Button) findViewById(R.id.gearDroppedTeleLess);
+        gearsDroppedTeleCountTV = (TextView) findViewById(R.id.gearDroppedCountTVTele);
 
         lowAutoLess = (Button) findViewById(R.id.lowHitLess);
         lowAutoAdd = (Button) findViewById(R.id.lowHitAdd);

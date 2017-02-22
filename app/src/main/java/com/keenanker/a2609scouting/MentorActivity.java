@@ -98,7 +98,8 @@ public class MentorActivity extends AppCompatActivity {
                 ";"+ teamFiveNum.getText().toString() + ",;"+  teamFiveComments.getText().toString() +
                 ";"+ teamSixNum.getText().toString() + ";"+  teamSixComments.getText().toString() + ";"+
                 autoRotor+";"+totalRotorET.getText().toString()+";"+furnaceCheck+";"+kpaRemaining.getText().toString()+";"+
-                redAutoRotor + ";"+redTotalRotorET.getText().toString()+ ";"+redFurnaceCheck+ ";"+redKpaRemaining.getText().toString()+";"+mentorName.getText();
+                redAutoRotor + ";"+redTotalRotorET.getText().toString()+ ";"+redFurnaceCheck+ ";"+redKpaRemaining.getText().toString()+
+                ";"+mentorName.getText().toString()+";"+matchNum.getText().toString();
 
     }
 
