@@ -439,7 +439,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         File exst = Environment.getExternalStorageDirectory();
         String exstPath = exst.getPath();
 
-        File fooo = new File(exstPath + "/Scouting/ScoutingData");
+        File fooo = new File(exstPath + "/Scouting");
         boolean success = fooo.mkdir();
         System.out.println(mExternalStorageAvailable);
         System.out.println(mExternalStorageWriteable);

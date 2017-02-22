@@ -25,7 +25,7 @@
                 android:hint="Match Num"
                 android:inputType="number"
                 android:layout_marginTop="8sp"
-                />
+                android:text="4" />
 
             <GridLayout
                 android:layout_width="wrap_content"
@@ -48,7 +48,8 @@
                     android:layout_marginEnd="4sp"
                     android:id="@+id/teamOneNum"
                     android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"/>
+                    android:layout_rowWeight="1"
+                    android:text="5676" />
 
                 <EditText
                     android:layout_width="92sp"
@@ -62,7 +63,8 @@
                     android:layout_marginStart="4sp"
                     android:gravity="center_horizontal"
                     android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"/>
+                    android:layout_rowWeight="1"
+                    android:text="754" />
 
 
                 <EditText
@@ -77,20 +79,7 @@
                     android:layout_row="1"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
-                    />
-
-                <EditText
-                    android:layout_width="150sp"
-                    android:layout_height="125sp"
-                    android:background="@drawable/background_white_red_outline"
-                    android:layout_column="1"
-                    android:hint="Comments"
-                    android:layout_row="1"
-                    android:layout_marginStart="4sp"
-                    android:gravity="center_horizontal"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:id="@+id/teamTwoComments" />
+                    android:text="hgfdsd" />
 
                 <EditText
                     android:layout_width="92sp"
@@ -104,21 +93,8 @@
                     android:id="@+id/teamThreeNum"
                     android:layout_marginEnd="4sp"
                     android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"/>
-
-                <EditText
-                    android:layout_width="92sp"
-                    android:layout_height="36sp"
-                    android:background="@drawable/background_white_red_outline"
-                    android:layout_column="1"
-                    android:layout_row="3"
-                    android:hint="Team Number"
-                    android:inputType="numberDecimal"
-                    android:id="@+id/teamFourNum"
-                    android:layout_marginStart="4sp"
-                    android:gravity="center_horizontal"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"/>
+                    android:layout_rowWeight="1"
+                    android:text="7654" />
 
 
                 <EditText
@@ -133,7 +109,7 @@
                     android:layout_row="4"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
-                    />
+                    android:text="kjhgfd" />
 
                 <EditText
                     android:layout_width="150sp"
@@ -146,7 +122,8 @@
                     android:gravity="center_horizontal"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
-                    android:id="@+id/teamFourComments" />
+                    android:id="@+id/teamFourComments"
+                    android:text="jhgfd" />
 
                 <EditText
                     android:layout_width="92sp"
@@ -160,7 +137,8 @@
                     android:layout_marginEnd="4sp"
                     android:id="@+id/teamFiveNum"
                     android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"/>
+                    android:layout_rowWeight="1"
+                    android:text="24" />
 
                 <EditText
                     android:layout_width="92sp"
@@ -174,7 +152,8 @@
                     android:layout_marginStart="4sp"
                     android:gravity="center_horizontal"
                     android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"/>
+                    android:layout_rowWeight="1"
+                    android:text="54" />
 
 
                 <EditText
@@ -189,7 +168,7 @@
                     android:layout_row="6"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
-                    />
+                    android:text="hgf" />
 
                 <EditText
                     android:layout_width="150sp"
@@ -202,7 +181,37 @@
                     android:gravity="center_horizontal"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
-                    android:id="@+id/teamSixComments" />
+                    android:id="@+id/teamSixComments"
+                    android:text="hrsad" />
+
+                <EditText
+                    android:layout_width="150sp"
+                    android:layout_height="125sp"
+                    android:background="@drawable/background_white_red_outline"
+                    android:layout_column="1"
+                    android:hint="Comments"
+                    android:layout_row="1"
+                    android:layout_marginStart="4sp"
+                    android:gravity="center_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/teamTwoComments"
+                    android:text="jhgfd" />
+
+                <EditText
+                    android:layout_width="92sp"
+                    android:layout_height="36sp"
+                    android:background="@drawable/background_white_red_outline"
+                    android:layout_column="1"
+                    android:layout_row="3"
+                    android:hint="Team Number"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/teamFourNum"
+                    android:layout_marginStart="4sp"
+                    android:gravity="center_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:text="9876" />
             </GridLayout>
 
             <GridLayout
@@ -258,7 +267,7 @@
                     android:gravity="center_horizontal"
                     android:hint="Rotor Spinning"
                     android:layout_marginBottom="8sp"
-                    />
+                    android:text="4" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -306,7 +315,7 @@
                     android:layout_column="0"
                     android:layout_row="5"
                     android:inputType="number"
-                    />
+                    android:text="43" />
 
 
                 <TextView
@@ -355,7 +364,7 @@
                     android:gravity="center_horizontal"
                     android:hint="Rotor Spinning"
                     android:layout_marginBottom="8sp"
-                    />
+                    android:text="4" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -403,7 +412,7 @@
                     android:layout_column="1"
                     android:layout_row="5"
                     android:inputType="number"
-                    />
+                    android:text="6543" />
 
             </GridLayout>
 
@@ -419,7 +428,7 @@
                 android:layout_marginBottom="8sp"
                 android:layout_below="@+id/endGameGL"
                 android:layout_centerHorizontal="true"
-                />
+                android:text="keenan" />
 
             <Button
                 android:layout_width="96sp"

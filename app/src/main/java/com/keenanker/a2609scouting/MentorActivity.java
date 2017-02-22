@@ -70,20 +70,7 @@ public class MentorActivity extends AppCompatActivity {
     String redAutoRotor;
     String redFurnaceCheck;
 
-    public void makeMaster(){
 
-        titleString = "Mentor"+matchNum.getText().toString() + mentorName.getText();
-
-        masterString = teamOneNum.getText().toString() + ";"+  teamOneComments.getText().toString() +
-                ";" + teamTwoNum.getText().toString() + ";"+  teamTwoComments.getText().toString() +
-                ";"+ teamThreeNum.getText().toString() + ";"+  teamThreeComments.getText().toString() +
-                ";"+ teamFourNum.getText().toString() + ";"+  teamFourComments.getText().toString() +
-                ";"+ teamFiveNum.getText().toString() + ",;"+  teamFiveComments.getText().toString() +
-                ";"+ teamSixNum.getText().toString() + ";"+  teamSixComments.getText().toString() + ";"+
-                autoRotor+";"+totalRotorET.getText().toString()+";"+furnaceCheck+";"+kpaRemaining.getText().toString()+
-                ";" + redTotalRotorET.getText().toString()+ ";"+redKpaRemaining+";"+mentorName.getText();
-
-    }
 
     public void saveButton (View view) {
 
@@ -99,6 +86,22 @@ public class MentorActivity extends AppCompatActivity {
         saveFunction(file, saveText);
 
     }
+
+    public void makeMaster(){
+
+        titleString = "Mentor"+matchNum.getText().toString() + mentorName.getText();
+
+        masterString = teamOneNum.getText().toString() + ";"+  teamOneComments.getText().toString() +
+                ";" + teamTwoNum.getText().toString() + ";"+  teamTwoComments.getText().toString() +
+                ";"+ teamThreeNum.getText().toString() + ";"+  teamThreeComments.getText().toString() +
+                ";"+ teamFourNum.getText().toString() + ";"+  teamFourComments.getText().toString() +
+                ";"+ teamFiveNum.getText().toString() + ",;"+  teamFiveComments.getText().toString() +
+                ";"+ teamSixNum.getText().toString() + ";"+  teamSixComments.getText().toString() + ";"+
+                autoRotor+";"+totalRotorET.getText().toString()+";"+furnaceCheck+";"+kpaRemaining.getText().toString()+";"+
+                redAutoRotor + ";"+redTotalRotorET.getText().toString()+ ";"+redFurnaceCheck+ ";"+redKpaRemaining.getText().toString()+";"+mentorName.getText();
+
+    }
+
 
     public static void saveFunction(File file, String[] data) {
 
@@ -157,12 +160,12 @@ public class MentorActivity extends AppCompatActivity {
             case R.id.autoRotorNo:
                 if (checked)
                     autoRotor = "0";
-                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.autoRotorSucc:
                 if (checked)
                     autoRotor = "2";
-                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -175,12 +178,12 @@ public class MentorActivity extends AppCompatActivity {
             case R.id.furnaceNo:
                 if (checked)
                     furnaceCheck = "0";
-                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.furnaceSucc:
                 if (checked)
                     furnaceCheck = "2";
-                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -194,12 +197,12 @@ public class MentorActivity extends AppCompatActivity {
             case R.id.redAutoRotorNo:
                 if (checked)
                     redAutoRotor = "0";
-                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.redAutoRotorSucc:
                 if (checked)
                     redAutoRotor = "2";
-                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -212,16 +215,42 @@ public class MentorActivity extends AppCompatActivity {
             case R.id.redFurnaceNo:
                 if (checked)
                     redFurnaceCheck = "0";
-                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.redFurnaceSucc:
                 if (checked)
                     redFurnaceCheck = "2";
-                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
 
+
+    public void makeFolder() {
+
+        boolean mExternalStorageAvailable = false;
+        boolean mExternalStorageWriteable = false;
+
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            mExternalStorageAvailable = true;
+            mExternalStorageWriteable = true;
+        } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+            mExternalStorageAvailable = true;
+            mExternalStorageWriteable = false;
+        } else {
+            mExternalStorageAvailable = false;
+            mExternalStorageWriteable = false;
+        }
+        File exst = Environment.getExternalStorageDirectory();
+        String exstPath = exst.getPath();
+
+        File fooo = new File(exstPath + "/Scouting/Mentor");
+        boolean success = fooo.mkdir();
+        System.out.println(mExternalStorageAvailable);
+        System.out.println(mExternalStorageWriteable);
+        System.out.println(success);
+    }
 
 
     @Override
@@ -250,6 +279,13 @@ public class MentorActivity extends AppCompatActivity {
         totalRotorET = (EditText) findViewById(R.id.rotorCountET);
         redKpaRemaining = (EditText) findViewById(R.id.redKpaRemainET);
         redTotalRotorET = (EditText) findViewById(R.id.redRotorCountET);
+
+        autoRotors = (RadioGroup) findViewById(R.id.autoRotorGroup);
+        redAutoRotors = (RadioGroup) findViewById(R.id.redAutoRotorGroup);
+        furnaceGroup = (RadioGroup) findViewById(R.id.furnaceGroup);
+        redFurnaceGroup = (RadioGroup) findViewById(R.id.redFurnaceGroup);
+
+        makeFolder();
 
 
     }
