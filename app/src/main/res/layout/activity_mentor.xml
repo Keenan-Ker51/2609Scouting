@@ -410,6 +410,7 @@
                 android:hint="Name"
                 android:layout_marginBottom="8sp"
                 android:layout_below="@+id/endGameGL"
+                android:layout_marginTop="8sp"
                 android:layout_centerHorizontal="true" />
 
             <Button
