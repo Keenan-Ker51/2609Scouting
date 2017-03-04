@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.io.File;
@@ -17,11 +18,14 @@ public class PitActivity extends AppCompatActivity {
     EditText pitName;
     EditText pitInfo;
     EditText teamNum;
+    EditText gearInfo;
+    EditText ballInfo;
 
     String titleString;
     String masterString;
     File file;
     String[] saveText;
+    String driveString;
 
     String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/Pit";
 
@@ -43,9 +47,9 @@ public class PitActivity extends AppCompatActivity {
 
     public void makeMaster(){
 
-        titleString = "Pit"+teamNum.getText().toString() + pitName.getText();
+        titleString = "Pit"+teamNum.getText().toString() + teamNum.getText();
 
-        masterString = pitInfo.getText().toString();
+        masterString = pitInfo.getText().toString()+";"+gearInfo.getText().toString()+";"+driveString+";"+ballInfo.getText().toString();
 
     }
     public static void saveFunction(File file, String[] data) {
@@ -110,6 +114,41 @@ public class PitActivity extends AppCompatActivity {
         pitInfo.setText("");
 
 
+
+    }
+
+    public void onDriveButton(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.machanumDrive:
+                if (checked)
+                    driveString = "Machanum";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.tankDrive:
+                if (checked)
+                    driveString = "Tank";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.omniwheelDrive:
+                if (checked)
+                    driveString = "Omniwheel";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.crabDrive:
+                if (checked)
+                    driveString = "Crab";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.otherDrive:
+                if (checked)
+                    driveString = "Other";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
     }
 
     @Override
@@ -122,6 +161,8 @@ public class PitActivity extends AppCompatActivity {
         pitName = (EditText) findViewById(R.id.nameET);
         teamNum = (EditText) findViewById(R.id.teamNumber);
         pitInfo = (EditText) findViewById(R.id.infoET);
+        gearInfo = (EditText) findViewById(R.id.gearStratET);
+        ballInfo = (EditText) findViewById(R.id.ballIntakeET);
 
 
 

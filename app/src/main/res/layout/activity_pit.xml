@@ -51,14 +51,96 @@
             <EditText
                 android:layout_width="360sp"
                 android:layout_height="240sp"
-                android:id="@+id/infoET"
+                android:id="@+id/gearStratET"
                 android:layout_below="@id/teamNumber"
                 android:layout_centerHorizontal="true"
-                android:hint="Ask your teacher or head scout for questions to ask"
+                android:hint="Gear intake? \nCan the team drop gears? \nIMPORTANT!"
                 android:layout_marginTop="8sp"
                 android:gravity="center_horizontal"
                 android:background="@drawable/background_white"
                 />
+
+
+            <EditText
+                android:layout_width="180sp"
+                android:layout_height="90sp"
+                android:id="@+id/infoET"
+                android:layout_below="@id/gearStratET"
+                android:layout_centerHorizontal="true"
+                android:hint="Climber?"
+                android:layout_marginTop="8sp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/background_white"
+                />
+
+            <EditText
+                android:layout_width="92sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/ballIntakeET"
+                android:layout_below="@id/infoET"
+                android:layout_centerHorizontal="true"
+                android:hint="Ball intake if any"
+                android:layout_marginTop="8sp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/background_white"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/driveTV"
+                android:text="Drive base"
+                android:textColor="#212121"
+                android:layout_below="@id/ballIntakeET"
+                android:layout_centerHorizontal="true"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/driveTV"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/driveGroup">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tank"
+                    android:id="@+id/tankDrive"
+                    android:onClick="onDriveButton"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Machanum"
+                    android:id="@+id/machanumDrive"
+                    android:onClick="onDriveButton"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Omniwheel"
+                    android:id="@+id/omniwheelDrive"
+                    android:onClick="onDriveButton"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crab"
+                    android:id="@+id/crabDrive"
+                    android:onClick="onDriveButton"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other"
+                    android:id="@+id/otherDrive"
+                    android:onClick="onDriveButton"
+                    />
+
+
+
+            </RadioGroup>
 
             <Button
                 android:layout_width="96sp"
@@ -69,7 +151,7 @@
                 android:onClick="clearButton"
                 android:background="@drawable/background_white_red_outline"
                 android:layout_marginBottom="16sp"
-                android:layout_below="@id/infoET"/>
+                android:layout_below="@id/driveGroup"/>
 
 
             <Button
@@ -81,7 +163,7 @@
                 android:background="@drawable/background_white_green_outline"
                 android:layout_alignParentEnd="true"
                 android:onClick="saveButton"
-                android:layout_below="@id/infoET"/>
+                android:layout_below="@id/driveGroup"/>
 
 
         </RelativeLayout>
