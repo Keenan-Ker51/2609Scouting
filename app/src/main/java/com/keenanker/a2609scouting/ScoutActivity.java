@@ -123,7 +123,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     RadioGroup gearGroup;
     RadioGroup liftGroup;
     RadioGroup allianceGroup;
-    String alliance = "blue";
+    String alliance;
     String scoutString;
     int sharedPrefMade = 1;
     String username;
@@ -470,8 +470,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         }
     }
     public void gearsDroppedTeleAdd(View view) {
-        if (gearTeleCount == 12) {
-            gearTeleCount = gearTeleCount;
+        if (gearDroppedTeleCount == 12) {
+            gearDroppedTeleCount = gearDroppedTeleCount;
         } else {
             gearDroppedTeleCount = gearDroppedTeleCount + 1;
             gearsDroppedTeleCountTV.setText(String.valueOf(gearDroppedTeleCount));
@@ -482,7 +482,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
             gearDroppedTeleCount = gearDroppedTeleCount;
         } else {
             gearDroppedTeleCount = gearDroppedTeleCount - 1;
-            gearsDroppedTeleCountTV.setText(String.valueOf(gearTeleCount));
+            gearsDroppedTeleCountTV.setText(String.valueOf(gearDroppedTeleCount));
         }
     }
     public void lowAutoAdd(View view) {
