@@ -41,7 +41,7 @@
         android:layout_marginBottom="8sp"
         android:background="@drawable/background_white"
         android:layout_below="@+id/humanScoutButton"
-        android:text="Mentor"/>
+        android:text="Head Scout"/>
 
     <Button
         android:layout_width="125sp"

@@ -22,7 +22,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="clear"
-                android:layout_below="@+id/allianceGroup"
+                android:layout_below="@+id/liftGroup"
+                android:layout_marginTop="8sp"
                 android:layout_marginBottom="6sp"
                 android:layout_marginStart="6sp"
                 android:onClick="clearButton"
@@ -45,15 +46,27 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/teamNumET"
                 android:text="Match Number"
+                android:visibility="visible"
                 android:layout_centerHorizontal="true"
                 android:textColor="#100303" />
+
+            <EditText
+                android:layout_width="92sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/match"
+                android:gravity="center_horizontal"
+                android:background="@drawable/background_white"
+                android:layout_centerHorizontal="true"
+                android:inputType="number"
+                android:layout_below="@id/matchNumTV"
+                />
 
             <TextView
                 android:id="@+id/autoTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32sp"
-                android:layout_below="@+id/matchNumTV"
+                android:layout_below="@+id/scoutNameET"
                 android:layout_centerHorizontal="true"
                 android:text="Autonomous:"
                 android:textColor="#100303" />
@@ -152,91 +165,10 @@
                     android:text="Success "/>
             </RadioGroup>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/timeIntroTV"
-                android:textColor="#100303"
-                android:layout_below="@id/liftGroup"
-                android:layout_centerHorizontal="true"
-                android:text="Time Taken"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#100303"
-                android:id="@+id/liftTimer"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/timeIntroTV"
-                android:text="0"
-                />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="48sp"
-                android:id="@+id/timerStart"
-                android:text="Start"
-                android:onClick="timerStart"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8sp"
-                />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="48sp"
-                android:id="@+id/timerStop"
-                android:text="Stop"
-                android:onClick="timerStop"
-                android:layout_toEndOf="@id/timeIntroTV"
-                android:layout_alignTop="@id/liftTimer"
-                />
 
-            <TextView
-                android:id="@+id/humanPlayerTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/timerStop"
-                android:text="Human Player Comments"
-                android:layout_centerHorizontal="true"
-                android:textColor="#100303" />
-
-            <EditText
-                android:id="@+id/humanPlayerET"
-                android:layout_width="225sp"
-                android:layout_height="165sp"
-                android:background="@drawable/background_white"
-                android:layout_below="@id/humanPlayerTV"
-                android:gravity="center_horizontal"
-                android:layout_centerHorizontal="true"
-                android:hint="IMPORTANT: Make sure that the human player is part of the team you are scouting\nOtherwise write NA" />
-
-            <TextView
-                android:id="@+id/commentsTV"
-                android:layout_width="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/humanPlayerET"
-                android:text="Comments:"
-                android:textColor="#100303" />
-
-            <EditText
-                android:id="@+id/commentsET"
-                android:layout_width="225sp"
-                android:layout_height="165sp"
-                android:background="@drawable/background_white"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal"
-                android:layout_below="@+id/commentsTV" />
-
-            <TextView
-                android:id="@+id/scoutNameTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/commentsET"
-                android:layout_centerHorizontal="true"
-                android:text="Scout Name:"
-                android:textColor="#100303" />
 
             <EditText
                 android:id="@+id/scoutNameET"
@@ -244,16 +176,19 @@
                 android:background="@drawable/background_white"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
+                android:layout_marginTop="8sp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/scoutNameTV" />
+                android:hint="Name"
+                android:layout_below="@+id/match" />
 
             <Button
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/allianceGroup"
+                android:layout_below="@+id/liftGroup"
                 android:layout_alignParentEnd="true"
                 android:onClick="buttonSave"
+                android:layout_marginTop="8sp"
                 android:layout_marginBottom="6sp"
                 android:layout_marginEnd="6sp"
                 android:background="@drawable/background_white_green_outline"
@@ -261,88 +196,7 @@
 
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alliance\n Red - Blue"
-                android:textColor="#100303"
-                android:id="@+id/allianceTV"
-                android:layout_marginTop="16sp"
-                android:gravity="center_horizontal"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/scoutNameET"
-                />
 
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/allianceGroup"
-                android:orientation="horizontal"
-                android:background="@drawable/background_white"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/allianceTV"
-                >
-                <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/allianceRedGroup"
-                    android:orientation="vertical">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onAllianceButtonClicked"
-                        android:id="@+id/redRadio1"
-                        android:text="1"
-                        />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onAllianceButtonClicked"
-                        android:id="@+id/redRadio2"
-                        android:text="2"
-                        />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onAllianceButtonClicked"
-                        android:id="@+id/redRadio3"
-                        android:text="3"
-                        />
-                </RadioGroup>
-
-                <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/allianceBlueGroup"
-                    android:orientation="vertical">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onAllianceButtonClicked"
-                        android:text="1  "
-                        android:id="@+id/blueRadio1"
-                        />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onAllianceButtonClicked"
-                        android:text="2  "
-                        android:id="@+id/blueRadio2"
-                        />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="onAllianceButtonClicked"
-                        android:text="3  "
-                        android:id="@+id/blueRadio3"
-                        />
-                </RadioGroup>
-
-
-
-            </RadioGroup>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -402,40 +256,35 @@
                         android:id="@+id/lowTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Low Shots"
+                        android:text="Any Shots"
                         android:layout_centerHorizontal="true"
                         android:textColor="#100303"/>
 
-                    <TextView
-                        android:id="@+id/lowHitCount"
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/lowHitLess"
-                        android:layout_toEndOf="@+id/lowHitLess"
-                        android:text="0"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_marginLeft="8sp"
-                        android:layout_marginRight="8sp" />
-
-                    <Button
-                        android:id="@+id/lowHitAdd"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lowHitCount"
+                        android:id="@+id/autolowGroup"
                         android:layout_below="@+id/lowTV"
-                        android:onClick="lowAutoAdd"
-                        android:text="+" />
+                        android:layout_centerHorizontal="true"
+                        android:orientation="horizontal"
+                        >
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:id="@+id/ALDidntTry"
+                            android:onClick="onAutoLowButtonClicked"
+                            />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ALSucc"
+                            android:onClick="onAutoLowButtonClicked"
+                            android:text="Yes "/>
+                    </RadioGroup>
 
 
-                    <Button
-                        android:id="@+id/lowHitLess"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/lowTV"
-                        android:onClick="lowAutoLess"
-                        android:text="-" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -444,44 +293,8 @@
                     android:layout_below="@+id/lowAutoRL"
                     android:layout_centerHorizontal="true">
 
-                    <TextView
-                        android:id="@+id/highTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="High Shots"
-                        android:layout_centerHorizontal="true"
-                        android:textColor="#100303" />
 
 
-                    <Button
-                        android:id="@+id/highHitAdd"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/highHitLess"
-                        android:layout_toEndOf="@+id/highHitCount"
-                        android:onClick="highAutoAdd"
-                        android:text="+" />
-
-                    <TextView
-                        android:id="@+id/highHitCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/highHitLess"
-                        android:layout_toEndOf="@+id/highHitLess"
-                        android:text="0"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_marginLeft="8sp"
-                        android:layout_marginRight="8sp" />
-
-                    <Button
-                        android:id="@+id/highHitLess"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/highTV"
-                        android:onClick="highAutoLess"
-                        android:text="-" />
 
                 </RelativeLayout>
 
@@ -491,16 +304,7 @@
 
             </RelativeLayout>
 
-            <EditText
-                android:id="@+id/matchNumET"
-                android:layout_width="90sp"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="5"
-                android:gravity="center_horizontal"
-                android:layout_below="@+id/matchNumTV"
-                android:background="@drawable/shadow_text"
-                android:layout_alignEnd="@+id/matchNumTV" />
+
 
 
             <EditText
@@ -569,60 +373,13 @@
                         android:text="+" />
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="150sp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/gearDroppedTeleRL"
-                    android:layout_below="@id/gearTeleRL"
-                    android:layout_centerHorizontal="true"
-                    >
-                    <TextView
-                        android:id="@+id/gearsDroppedTeleTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="6sp"
-                        android:layout_marginStart="174sp"
-                        android:layout_centerHorizontal="true"
-                        android:text="Gears Dropped"
-                        android:textColor="#100303"
-                        android:layout_marginEnd="28sp" />
 
-                    <Button
-                        android:id="@+id/gearDroppedTeleLess"
-                        android:layout_width="48sp"
-                        android:layout_height="48sp"
-                        android:layout_below="@+id/gearsDroppedTeleTV"
-                        android:onClick="gearsDroppedTeleLess"
-                        android:layout_toStartOf="@+id/gearDroppedCountTVTele"
-                        android:text="-" />
-
-                    <TextView
-                        android:id="@+id/gearDroppedCountTVTele"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/gearDroppedTeleLess"
-                        android:text="0"
-                        android:textColor="#100303"
-                        android:layout_centerHorizontal="true"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_marginLeft="8sp"
-                        android:layout_marginRight="8sp" />
-
-                    <Button
-                        android:id="@+id/gearDroppedTeleAdd"
-                        android:layout_width="48sp"
-                        android:layout_height="48sp"
-                        android:layout_below="@+id/gearsDroppedTeleTV"
-                        android:layout_toEndOf="@+id/gearDroppedCountTVTele"
-                        android:onClick="gearsDroppedTeleAdd"
-                        android:text="+" />
-                </RelativeLayout>
 
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/gearDroppedTeleRL"
+                    android:layout_below="@+id/gearTeleRL"
                     android:layout_centerHorizontal="true"
                     android:id="@+id/lowTeleRL"
                     >
@@ -630,42 +387,37 @@
                         android:id="@+id/lowTeleTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Low Shots"
+                        android:text="Any Shots"
                         android:layout_marginEnd="26sp"
                         android:layout_marginStart="26sp"
                         android:layout_centerHorizontal="true"
                         android:textColor="#100303" />
 
-                    <Button
-                        android:id="@+id/lowTeleAdd"
-                        style="?android:attr/buttonStyleSmall"
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/lowTeleCount"
-                        android:layout_toEndOf="@+id/lowTeleCount"
-                        android:onClick="lowTeleAdd"
-                        android:text="+" />
-
-                    <TextView
-                        android:id="@+id/lowTeleCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/lowTeleLess"
-                        android:text="0"
+                        android:id="@+id/telelowGroup"
+                        android:layout_below="@+id/lowTeleTV"
                         android:layout_centerHorizontal="true"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_marginLeft="8sp"
-                        android:layout_marginRight="8sp" />
+                        android:orientation="horizontal"
+                        >
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:id="@+id/TLDidntTry"
+                            android:onClick="onTeleLowButtonClicked"
+                            />
 
-                    <Button
-                        android:id="@+id/lowTeleLess"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toStartOf="@+id/lowTeleCount"
-                        android:layout_below="@id/lowTeleTV"
-                        android:onClick="lowTeleLess"
-                        android:text="-" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/TLSucc"
+                            android:onClick="onTeleLowButtonClicked"
+                            android:text="Yes "/>
+                    </RadioGroup>
+
+
                 </RelativeLayout>
 
 
@@ -676,46 +428,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@+id/lowTeleRL">
-                    <TextView
-                        android:id="@+id/highTeleTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="26sp"
-                        android:layout_marginStart="26sp"
-                        android:layout_centerHorizontal="true"
-                        android:text="High Shots"
-                        android:textColor="#100303" />
 
-                    <Button
-                        android:id="@+id/highTeleAdd"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/highTeleTV"
-                        android:layout_toEndOf="@+id/highTeleCount"
-                        android:onClick="highTeleAdd"
-                        android:text="+" />
-
-                    <TextView
-                        android:id="@+id/highTeleCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/highTeleTV"
-                        android:layout_centerHorizontal="true"
-                        android:text="0"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_marginLeft="8sp"
-                        android:layout_marginRight="8sp" />
-
-                    <Button
-                        android:id="@+id/highTeleLess"
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="highTeleLess"
-                        android:text="-"
-                        android:layout_below="@+id/highTeleTV"
-                        android:layout_toStartOf="@+id/highTeleCount" />
                 </RelativeLayout>
 
 

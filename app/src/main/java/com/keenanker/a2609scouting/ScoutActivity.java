@@ -13,6 +13,7 @@ import android.os.Environment;
 import android.os.SystemClock;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringDef;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 
 public class ScoutActivity extends AppCompatActivity implements View.OnTouchListener{
@@ -129,6 +131,11 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     String username;
 
     String gearString;
+    String autoHighString;
+    String autoLowString;
+    String teleHighString;
+    String teleLowString;
+
 
     String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting";
     String scoutPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/ScoutingData";
@@ -140,8 +147,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     int seconds;
 
 
-    RadioGroup rg1;
-    RadioGroup rg2;
+
 
 
     int liftPos;
@@ -225,53 +231,63 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.gearDidntTry:
                 if (checked)
-                    gearString = "0";
+                    gearString = "N";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.gearTried:
                 if (checked)
-                    gearString = "1";
+                    gearString = "T";
                 //Toast.makeText(this, "Tried but failed", Toast.LENGTH_LONG).show();
                 break;
             case R.id.gearSucc:
                 if (checked)
-                    gearString = "2";
-                Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                    gearString = "S";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
-    public void onAllianceButtonClicked(View view) {
+
+    public void onAutoLowButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
         switch(view.getId()) {
-            case R.id.blueRadio1:
+            case R.id.ALSucc:
                 if (checked)
-                    alliance = "4";
+                    autoLowString = "S";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.blueRadio2:
+
+            case R.id.ALDidntTry:
                 if (checked)
-                    alliance = "5";
-                break;
-            case R.id.blueRadio3:
-                if (checked)
-                    alliance = "6";
-                break;
-            case R.id.redRadio1:
-                if (checked)
-                    alliance = "1";
-                break;
-            case R.id.redRadio2:
-                if (checked)
-                    alliance = "2";
-                break;
-            case R.id.redRadio3:
-                if (checked)
-                    alliance = "3";
+                    autoLowString = "N";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
+
+    public void onTeleLowButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.TLDidntTry:
+                if (checked)
+                    teleLowString = "N";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.TLSucc:
+                if (checked)
+                    teleLowString = "S";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+
+
     public void onLiftButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -280,104 +296,43 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.liftDidntTry:
                 if (checked)
-                    liftOffString = "0";
+                    liftOffString = "N";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.liftTried:
                 if (checked)
-                    liftOffString = "1";
+                    liftOffString = "T";
                 //Toast.makeText(this, "Tried but failed", Toast.LENGTH_LONG).show();
                 break;
             case R.id.liftSucc:
                 if (checked)
-                    liftOffString = "2";
-                Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                    liftOffString = "S";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
     }
 
-    public void timerStart(View view){
-
-        if (counterIsActive == false) {
-
-            counterIsActive = true;
-            //timerSeekBar.setEnabled(false);
-            //controllerButton.setText("Stop");
-
-            countDownTimer = new CountDownTimer(135000 + 100, 1000) {
-
-                @Override
-                public void onTick(long millisUntilFinished) {
-
-                    updateTimer((int) millisUntilFinished / 1000);
-
-                }
-
-                @Override
-                public void onFinish() {
-
-                    //resetTimer();
-                    //MediaPlayer mplayer = MediaPlayer.create(getApplicationContext(), R.raw.airhorn);
-                    //mplayer.start();
-
-                }
-            }.start();
-
-        } else {
-
-            //resetTimer();
-            return;
-
-        }
-        //chronometer.setBase(0);
-        //chronometer.start();
-    }
-
-    public void updateTimer(int secondsLeft) {
-
-        //int minutes = (int) secondsLeft / 60;
-        int seconds = secondsLeft;
-
-        secondString = Integer.toString(seconds);
-
-        if (seconds <= 9) {
-
-            secondString = "0" + secondString;
-
-        }
-
-
-        liftTimer.setText(secondString);
-
-    }
-    public void timerStop(View view){
-
-        finalCount = (String) liftTimer.getText();
-        liftTimer.setText(finalCount);
-
-    }
 
     public void makeMaster() {
-        titleString = "Match" + matchNum.getText().toString()+ alliance + teamNum.getText().toString();
+        Random random = new Random();
+        int i = random.nextInt(1000);
+        titleString = "Team"  + teamNum.getText().toString()+String.valueOf(i);
 
-        masterString = teamNum.getText().toString() + ";"+alliance + ";" + matchNum.getText().toString() + ";" +
+
+
+/*        masterString = teamNum.getText().toString() + ";"+alliance + ";" + matchNum.getText().toString() + ";" +
                 ";" + gearString + ";" + lowAutoCount + ";" + highAutoCount  + ";" + gearTeleCount +
-                ";" + lowTeleCount + ";" + highTeleCount + ";" + ";" + liftOffString
+                ";" + lowTeleCount + ";" + highTeleCount + ";" + ";" + liftOffString //9
                 + ";" + comments.getText().toString() + ";" + humanComments.getText().toString() +
                 ";" + scoutName.getText().toString()+";"+alliance+";"+finalCount+";"+gearDroppedTeleCount
-                ;
+                ;*/
 
-        scoutString = scoutName.getText().toString();
+        masterString =   matchNum.getText().toString() +"~" + teamNum.getText().toString()+"~"
+        +gearString+"~"+autoLowString+"~"+ String.valueOf(gearTeleCount)
+        +"~"+teleLowString+"~"+liftOffString
+        ;
 
-        ScoutingData data = new ScoutingData();
-        data.scoutName = scoutName.getText().toString();
-        data.teamNum = teamNum.getText().toString();
-        data.lowAutoCount = lowAutoCount;
-        data.lowTeleCount = lowTeleCount;
-        data.highAutoCount = highAutoCount;
-        data.highTeleCount = highTeleCount;
-        data.gearTeleCount = gearTeleCount;
-        data.comments = comments.getText().toString();
+
 
         /*public class ScoutingData{
             String scoutName;
@@ -416,7 +371,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
             br.close();
         } catch (IOException e) {
             //You'll need to add proper error handling here
-            Toast.makeText(this, "Sorry the prgrammer has aids :(", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry the programmer has aids :(", Toast.LENGTH_SHORT).show();
         }
 
         //Find the view by its id
@@ -469,87 +424,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
             gearsTeleCountTV.setText(String.valueOf(gearTeleCount));
         }
     }
-    public void gearsDroppedTeleAdd(View view) {
-        if (gearDroppedTeleCount == 12) {
-            gearDroppedTeleCount = gearDroppedTeleCount;
-        } else {
-            gearDroppedTeleCount = gearDroppedTeleCount + 1;
-            gearsDroppedTeleCountTV.setText(String.valueOf(gearDroppedTeleCount));
-        }
-    }
-    public void gearsDroppedTeleLess(View view) {
-        if (gearDroppedTeleCount == 0) {
-            gearDroppedTeleCount = gearDroppedTeleCount;
-        } else {
-            gearDroppedTeleCount = gearDroppedTeleCount - 1;
-            gearsDroppedTeleCountTV.setText(String.valueOf(gearDroppedTeleCount));
-        }
-    }
-    public void lowAutoAdd(View view) {
-        lowAutoCount = lowAutoCount + 10;
-        lowAutoCountTV.setText(String.valueOf(lowAutoCount));
-    }
-    public void lowAutoLess(View view) {
-        if (lowAutoCount == 0) {
-            lowAutoCount = lowAutoCount;
-        } else {
-            lowAutoCount = lowAutoCount - 2;
-            lowAutoCountTV.setText(String.valueOf(lowAutoCount));
-        }
-    }
-    public void lowTeleAdd(View view) {
-        lowTeleCount = lowTeleCount + 10;
-        lowTeleCountTV.setText(String.valueOf(lowTeleCount));
-    }
-    public void lowTeleLess(View view) {
-        if (lowTeleCount == 0) {
-            lowTeleCount = lowTeleCount;
-        } else {
-            lowTeleCount = lowTeleCount - 2;
-            lowTeleCountTV.setText(String.valueOf(lowTeleCount));
-        }
-    }
-    public void highAutoAdd(View view) {
-        highAutoCount = highAutoCount + 3;
-        highAutoCountTV.setText(String.valueOf(highAutoCount));
-    }
-    public void highAutoLess(View view) {
-        if (highAutoCount == 0) {
-            highAutoCount = highAutoCount;
-        } else {
-            highAutoCount = highAutoCount - 3;
-            highAutoCountTV.setText(String.valueOf(highAutoCount));
-        }
-    }
-    public void highTeleAdd(View view) {
-        highTeleCount = highTeleCount + 3;
-        highTeleCountTV.setText(String.valueOf(highTeleCount));
-    }
-    public void highTeleLess(View view) {
-        if (highTeleCount == 0) {
-            highTeleCount = highTeleCount;
-        } else {
-            highTeleCount = highTeleCount - 3;
-            highTeleCountTV.setText(String.valueOf(highTeleCount));
-        }
-    }
-    public void liftoffAddF(View view) {
-        if (liftoffCount == 2) {
-            liftoffCount = liftoffCount;
-        } else {
-            liftoffCount = liftoffCount + 1;
-            liftoffCountTV.setText(String.valueOf(liftoffCount));
-        }
 
-    }
-    public void liftoffLessF(View view) {
-        if (liftoffCount == 0) {
-            liftoffCount = liftoffCount;
-        } else {
-            liftoffCount = liftoffCount - 1;
-            liftoffCountTV.setText(String.valueOf(liftoffCount));
-        }
-    }
 
 
     public void clearButton (View view){
@@ -570,31 +445,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
 
     }
 
-    private RadioGroup.OnCheckedChangeListener listener1 = new RadioGroup.OnCheckedChangeListener() {
 
-        @Override
-        public void onCheckedChanged(RadioGroup group, int checkedId) {
-            if (checkedId != -1) {
-                rg2.setOnCheckedChangeListener(null); // remove the listener before clearing so we don't throw that stackoverflow exception(like Vladimir Volodin pointed out)
-                rg2.clearCheck(); // clear the second RadioGroup!
-                rg2.setOnCheckedChangeListener(listener2); //reset the listener
-                //Log.e("XXX2", "do the work");
-            }
-        }
-    };
-
-    private RadioGroup.OnCheckedChangeListener listener2 = new RadioGroup.OnCheckedChangeListener() {
-
-        @Override
-        public void onCheckedChanged(RadioGroup group, int checkedId) {
-            if (checkedId != -1) {
-                rg1.setOnCheckedChangeListener(null);
-                rg1.clearCheck();
-                rg1.setOnCheckedChangeListener(listener1);
-                //Log.e("XXX2", "do the work");
-            }
-        }
-    };
 
 
 
@@ -605,7 +456,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         //saveFunction();
         boolean that = false;
         teamNum = (EditText) findViewById(R.id.teamNumET);
-        matchNum = (EditText) findViewById(R.id.matchNumET);
+        matchNum = (EditText) findViewById(R.id.match);
         humanComments = (EditText) findViewById(R.id.humanPlayerET);
         comments = (EditText) findViewById(R.id.commentsET);
         scoutName = (EditText) findViewById(R.id.scoutNameET);
@@ -614,9 +465,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         gearTeleLess = (Button) findViewById(R.id.gearTeleLess);
         gearsTeleCountTV = (TextView) findViewById(R.id.gearCountTVTele);
 
-        gearDroppedTeleAdd = (Button) findViewById(R.id.gearDroppedTeleAdd);
-        gearDroppedTeleLess = (Button) findViewById(R.id.gearDroppedTeleLess);
-        gearsDroppedTeleCountTV = (TextView) findViewById(R.id.gearDroppedCountTVTele);
 
         lowAutoLess = (Button) findViewById(R.id.lowHitLess);
         lowAutoAdd = (Button) findViewById(R.id.lowHitAdd);
@@ -642,14 +490,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         liftGroup = (RadioGroup) findViewById(R.id.liftGroup);
         allianceGroup = (RadioGroup) findViewById(R.id.allianceGroup);
 
-        rg1 = (RadioGroup) findViewById(R.id.allianceRedGroup);
-        rg2 = (RadioGroup) findViewById(R.id.allianceBlueGroup);
-        rg1.clearCheck(); // this is so we can start fresh, with no selection on both RadioGroups
-        rg2.clearCheck();
-        rg1.setOnCheckedChangeListener(listener1);
-        rg2.setOnCheckedChangeListener(listener2);
 
-        liftTimer = (TextView) findViewById(R.id.liftTimer);
+
 
         makeFolder();
 
