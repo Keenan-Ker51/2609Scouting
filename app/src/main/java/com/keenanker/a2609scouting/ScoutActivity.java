@@ -12,6 +12,7 @@ import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.provider.BaseColumns;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringDef;
 import android.support.v4.app.ActivityCompat;
@@ -41,6 +42,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -208,9 +210,24 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
 
         //teamNum.setText("");
 
-        Toast.makeText(getApplicationContext(), "This will make a fine addition to my collection", Toast.LENGTH_LONG).show();
 
-        saveFunction(file, saveText);
+        if (Objects.equals(teamNum.getText().toString(), "")){
+
+            Toast.makeText(getApplicationContext(), "You are missing a team number!", Toast.LENGTH_SHORT).show();
+            //Log.i("filename", titleString);
+        }
+        else if (Objects.equals(matchNum.getText().toString(), "")){
+            Toast.makeText(getApplicationContext(), "You are missing a team number!", Toast.LENGTH_SHORT).show();
+            //Log.i("filename", titleString);
+        }
+        else if (Objects.equals(gearString, "")){
+            Toast.makeText(getApplicationContext(), "You are missing a team number!", Toast.LENGTH_SHORT).show();
+            //Log.i("filename", titleString);
+        }
+        else{
+            saveFunction(file, saveText);
+            Toast.makeText(getApplicationContext(), "This will make a fine addition to my collection", Toast.LENGTH_LONG).show();
+        }
 
         //totalScore = gearTeleCount;
         //saveFunction(scoutFile, scoutSaveText);
