@@ -215,6 +215,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
 
             Toast.makeText(getApplicationContext(), "You are missing a team number!", Toast.LENGTH_SHORT).show();
             //Log.i("filename", titleString);
+            //changes
         }
         else if (Objects.equals(matchNum.getText().toString(), "")){
             Toast.makeText(getApplicationContext(), "You are missing a team number!", Toast.LENGTH_SHORT).show();
