@@ -449,18 +449,8 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
 
         gearTeleCount = 0;
         gearsTeleCountTV.setText(String.valueOf(gearTeleCount));
-        lowAutoCount = 0;
-        lowAutoCountTV.setText(String.valueOf(lowAutoCount));
-        lowTeleCount = 0;
-        lowTeleCountTV.setText(String.valueOf(lowTeleCount));
-        highAutoCount = 0;
-        highAutoCountTV.setText(String.valueOf(highAutoCount));
-        highTeleCount = 0;
-        highTeleCountTV.setText(String.valueOf(highTeleCount));
-
-        comments.setText("");
-        humanComments.setText("");
-
+        matchNum.setText((Integer.valueOf(String.valueOf(matchNum.getText())))+1);
+        teamNum.setText("");
     }
 
 
