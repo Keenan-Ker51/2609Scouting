@@ -48,23 +48,6 @@ import java.util.Random;
 
 public class ScoutActivity extends AppCompatActivity implements View.OnTouchListener{
 
-
-
-
-    public class ScoutingData{
-        String scoutName;
-        String teamNum;
-        String matchNum;
-        int lowAutoCount;
-        int lowTeleCount;
-        int highAutoCount;
-        int highTeleCount;
-        int gearTeleCount;
-        String endPos;
-        String comments;
-    }
-
-
     public String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting";
     Button save;
     EditText teamNum;
@@ -137,6 +120,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     String autoLowString;
     String teleHighString;
     String teleLowString;
+    String cardString;
 
 
     String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting";
@@ -249,17 +233,12 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.gearDidntTry:
                 if (checked)
-                    gearString = "N";
+                    gearString = "0";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.gearTried:
-                if (checked)
-                    gearString = "T";
-                //Toast.makeText(this, "Tried but failed", Toast.LENGTH_LONG).show();
                 break;
             case R.id.gearSucc:
                 if (checked)
-                    gearString = "S";
+                    gearString = "1";
                 //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
@@ -305,6 +284,28 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         }
     }
 
+    public void onCardButtonClicked(View view){
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.yellowCard:
+                if (checked)
+                    cardString = "Y";
+                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.redCard:
+                if (checked)
+                    cardString = "R";
+                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.noCard:
+                if (checked)
+                    cardString = "N";
+                break;
+        }
+    }
 
     public void onLiftButtonClicked(View view) {
         // Is the button now checked?
@@ -314,17 +315,12 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.liftDidntTry:
                 if (checked)
-                    liftOffString = "N";
+                    liftOffString = "0";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.liftTried:
-                if (checked)
-                    liftOffString = "T";
-                //Toast.makeText(this, "Tried but failed", Toast.LENGTH_LONG).show();
                 break;
             case R.id.liftSucc:
                 if (checked)
-                    liftOffString = "S";
+                    liftOffString = "1";
                 //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
@@ -498,7 +494,16 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         liftGroup = (RadioGroup) findViewById(R.id.liftGroup);
         allianceGroup = (RadioGroup) findViewById(R.id.allianceGroup);
 
-
+        RadioButton gearDidntTry = (RadioButton) findViewById(R.id.gearDidntTry);
+        gearDidntTry.setChecked(true);
+        RadioButton liftoffDidntTry = (RadioButton) findViewById(R.id.liftDidntTry);
+        liftoffDidntTry.setChecked(true);
+        RadioButton autoball = (RadioButton) findViewById(R.id.ALDidntTry);
+        autoball.setChecked(true);
+        RadioButton teleball = (RadioButton) findViewById(R.id.TLDidntTry);
+        teleball.setChecked(true);
+        RadioButton card = (RadioButton) findViewById(R.id.noCard);
+        card.setChecked(true);
 
 
         makeFolder();

@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="clear"
-                android:layout_below="@+id/liftGroup"
+                android:layout_below="@+id/cardGroup"
                 android:layout_marginTop="8sp"
                 android:layout_marginBottom="6sp"
                 android:layout_marginStart="6sp"
@@ -148,15 +148,6 @@
                     android:id="@+id/gearDidntTry"
                     android:onClick="onGearButtonClicked"
                     />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tried"
-                    android:onClick="onGearButtonClicked"
-                    android:id="@+id/gearTried"
-                    />
-
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -164,12 +155,50 @@
                     android:onClick="onGearButtonClicked"
                     android:text="Success "/>
             </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/liftGroup"
+                android:layout_centerHorizontal="true"
+                android:text="Cards"
+                android:id="@+id/cardsTV"
+                android:textColor="#100303"
+                />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardGroup"
+                android:layout_below="@id/cardsTV"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/background_white"
+                android:orientation="horizontal"
+                android:onClick="onCardButtonClicked"
+                >
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="None "
+                    android:id="@+id/noCard"
+                    android:onClick="onCardButtonClicked"
 
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Red"
+                    android:id="@+id/redCard"
+                    android:onClick="onCardButtonClicked"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yellow"
+                    android:id="@+id/yellowCard"
+                    android:onClick="onCardButtonClicked"
 
+                    />
 
-
-
-
+            </RadioGroup>
             <EditText
                 android:id="@+id/scoutNameET"
                 android:layout_width="165sp"
@@ -185,7 +214,7 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/liftGroup"
+                android:layout_below="@+id/cardGroup"
                 android:layout_alignParentEnd="true"
                 android:onClick="buttonSave"
                 android:layout_marginTop="8sp"
@@ -228,13 +257,6 @@
                         android:layout_height="wrap_content"
                         android:text="Didn't try"
                         android:id="@+id/liftDidntTry"
-                        android:onClick="onLiftButtonClicked"
-                        />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tried"
-                        android:id="@+id/liftTried"
                         android:onClick="onLiftButtonClicked"
                         />
                     <RadioButton
