@@ -15,18 +15,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ECEFF1">
+            android:background="#263238">
 
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="clear"
-                android:layout_below="@+id/cardGroup"
+                android:layout_below="@+id/redCardGroup"
                 android:layout_marginTop="8sp"
                 android:layout_marginBottom="6sp"
                 android:layout_marginStart="6sp"
                 android:onClick="clearButton"
+                android:textColor="#B0BEC5"
                 android:background="@drawable/background_white_red_outline"
                 />
 
@@ -38,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Team Number"
                 android:layout_centerHorizontal="true"
-                android:textColor="#100303" />
+                android:textColor="#B0BEC5" />
 
             <TextView
                 android:id="@+id/matchNumTV"
@@ -48,18 +49,7 @@
                 android:text="Match Number"
                 android:visibility="visible"
                 android:layout_centerHorizontal="true"
-                android:textColor="#100303" />
-
-            <EditText
-                android:layout_width="92sp"
-                android:layout_height="wrap_content"
-                android:id="@+id/match"
-                android:gravity="center_horizontal"
-                android:background="@drawable/background_white"
-                android:layout_centerHorizontal="true"
-                android:inputType="number"
-                android:layout_below="@id/matchNumTV"
-                />
+                android:textColor="#B0BEC5" />
 
             <TextView
                 android:id="@+id/autoTV"
@@ -69,7 +59,7 @@
                 android:layout_below="@+id/scoutNameET"
                 android:layout_centerHorizontal="true"
                 android:text="Autonomous:"
-                android:textColor="#100303" />
+                android:textColor="#B0BEC5" />
 
             <TextView
                 android:id="@+id/teleTV"
@@ -78,7 +68,7 @@
                 android:layout_below="@+id/gearsRL"
                 android:text="Tele Op:"
                 android:layout_centerHorizontal="true"
-                android:textColor="#100303" />
+                android:textColor="#CFD8DC" />
 
 
             <TextView
@@ -89,7 +79,7 @@
                 android:paddingBottom="16sp"
                 android:text="End Game:"
                 android:layout_centerHorizontal="true"
-                android:textColor="#100303" />
+                android:textColor="#B0BEC5" />
 
             <TextView
                 android:id="@+id/liftTV"
@@ -98,7 +88,7 @@
                 android:layout_below="@+id/endTV"
                 android:text="Liftoff"
                 android:layout_centerHorizontal="true"
-                android:textColor="#100303" />
+                android:textColor="#B0BEC5" />
 
             <Button
                 android:id="@+id/liftLess"
@@ -146,12 +136,16 @@
                     android:layout_height="wrap_content"
                     android:text="Didn't try"
                     android:id="@+id/gearDidntTry"
+                    android:buttonTint="#9E9E9E"
                     android:onClick="onGearButtonClicked"
+                    android:textColor="#CFD8DC"
                     />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/gearSucc"
+                    android:buttonTint="#9E9E9E"
+                    android:textColor="#CFD8DC"
                     android:onClick="onGearButtonClicked"
                     android:text="Success "/>
             </RadioGroup>
@@ -160,9 +154,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/liftGroup"
                 android:layout_centerHorizontal="true"
-                android:text="Cards"
+                android:text="Yellow Card"
                 android:id="@+id/cardsTV"
-                android:textColor="#100303"
+                android:textColor="#B0BEC5"
                 />
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -174,27 +168,68 @@
                 android:orientation="horizontal"
                 android:onClick="onCardButtonClicked"
                 >
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="None "
-                    android:id="@+id/noCard"
+                    android:text="No"
+                    android:id="@+id/noYellowCard"
                     android:onClick="onCardButtonClicked"
+                    android:textColor="#CFD8DC"
+                    android:buttonTint="#9E9E9E"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes "
+                    android:id="@+id/yellowCard"
+                    android:onClick="onCardButtonClicked"
+                    android:textColor="#CFD8DC"
+                    android:buttonTint="#9E9E9E"
+
+                    />
+
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Red Card"
+                android:textColor="#B0BEC5"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/cardGroup"
+                android:id="@+id/redCardTV"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/redCardTV"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:id="@+id/redCardGroup"
+                android:background="@drawable/background_white"
+                android:onClick="onRedCardButtonClicked"
+                >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:id="@+id/noRedCard"
+                    android:onClick="onRedCardButtonClicked"
+                    android:textColor="#CFD8DC"
+                    android:buttonTint="#9E9E9E"
 
                     />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Red"
+                    android:text="Yes "
                     android:id="@+id/redCard"
-                    android:onClick="onCardButtonClicked"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yellow"
-                    android:id="@+id/yellowCard"
-                    android:onClick="onCardButtonClicked"
+                    android:onClick="onRedCardButtonClicked"
+                    android:textColor="#CFD8DC"
+                    android:buttonTint="#9E9E9E"
 
                     />
 
@@ -206,6 +241,8 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="8sp"
+                android:textColorHint="#CFD8DC"
+                android:textColor="#CFD8DC"
                 android:layout_height="wrap_content"
                 android:hint="Name"
                 android:layout_below="@+id/match" />
@@ -214,11 +251,12 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/cardGroup"
+                android:layout_below="@+id/redCardGroup"
                 android:layout_alignParentEnd="true"
                 android:onClick="buttonSave"
                 android:layout_marginTop="8sp"
                 android:layout_marginBottom="6sp"
+                android:textColor="#B0BEC5"
                 android:layout_marginEnd="6sp"
                 android:background="@drawable/background_white_green_outline"
                 android:text="Save" />
@@ -242,7 +280,7 @@
                     android:layout_marginTop="16sp"
                     android:text="Gears"
                     android:layout_centerHorizontal="true"
-                    android:textColor="#100303"
+                    android:textColor="#B0BEC5"
                     android:textSize="16sp" />
 
                 <RadioGroup
@@ -258,12 +296,16 @@
                         android:text="Didn't try"
                         android:id="@+id/liftDidntTry"
                         android:onClick="onLiftButtonClicked"
+                        android:buttonTint="#9E9E9E"
+                        android:textColor="#CFD8DC"
                         />
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/liftSucc"
                         android:onClick="onLiftButtonClicked"
+                        android:buttonTint="#9E9E9E"
+                        android:textColor="#CFD8DC"
                         android:text="Success "/>
                 </RadioGroup>
 
@@ -280,7 +322,7 @@
                         android:layout_height="wrap_content"
                         android:text="Any Shots"
                         android:layout_centerHorizontal="true"
-                        android:textColor="#100303"/>
+                        android:textColor="#B0BEC5"/>
 
                     <RadioGroup
                         android:layout_width="wrap_content"
@@ -296,13 +338,18 @@
                             android:text="No"
                             android:id="@+id/ALDidntTry"
                             android:onClick="onAutoLowButtonClicked"
+                            android:buttonTint="#9E9E9E"
+                            android:textColor="#CFD8DC"
+
                             />
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/ALSucc"
+                            android:textColor="#CFD8DC"
                             android:onClick="onAutoLowButtonClicked"
+                            android:buttonTint="#9E9E9E"
                             android:text="Yes "/>
                     </RadioGroup>
 
@@ -336,6 +383,7 @@
                 android:inputType="number"
                 android:background="@drawable/shadow_text"
                 android:gravity="center_horizontal"
+                android:textColorHint="#CFD8DC"
                 android:layout_centerHorizontal="true"
                 android:hint="2609"
                 android:layout_below="@+id/teamNumTV" />
@@ -361,7 +409,7 @@
                         android:layout_marginStart="174sp"
                         android:layout_centerHorizontal="true"
                         android:text="Gears"
-                        android:textColor="#100303"
+                        android:textColor="#B0BEC5"
                         android:layout_marginEnd="28sp" />
 
                     <Button
@@ -370,6 +418,7 @@
                         android:layout_height="48sp"
                         android:layout_below="@+id/gearsTeleTV"
                         android:onClick="gearsTeleLess"
+                        android:background="@drawable/background_button"
                         android:layout_toStartOf="@+id/gearCountTVTele"
                         android:text="-" />
 
@@ -379,7 +428,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/gearTeleLess"
                         android:text="0"
-                        android:textColor="#100303"
+                        android:textColor="#B0BEC5"
                         android:layout_centerHorizontal="true"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_marginLeft="8sp"
@@ -388,6 +437,7 @@
                     <Button
                         android:id="@+id/gearTeleAdd"
                         android:layout_width="48sp"
+                        android:background="@drawable/background_button"
                         android:layout_height="48sp"
                         android:layout_below="@+id/gearsTeleTV"
                         android:layout_toEndOf="@+id/gearCountTVTele"
@@ -413,7 +463,7 @@
                         android:layout_marginEnd="26sp"
                         android:layout_marginStart="26sp"
                         android:layout_centerHorizontal="true"
-                        android:textColor="#100303" />
+                        android:textColor="#B0BEC5" />
 
                     <RadioGroup
                         android:layout_width="wrap_content"
@@ -428,6 +478,8 @@
                             android:layout_height="wrap_content"
                             android:text="No"
                             android:id="@+id/TLDidntTry"
+                            android:textColor="#CFD8DC"
+                            android:buttonTint="#9E9E9E"
                             android:onClick="onTeleLowButtonClicked"
                             />
 
@@ -435,6 +487,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/TLSucc"
+                            android:textColor="#CFD8DC"
+
+                            android:buttonTint="#9E9E9E"
                             android:onClick="onTeleLowButtonClicked"
                             android:text="Yes "/>
                     </RadioGroup>
@@ -455,6 +510,18 @@
 
 
             </RelativeLayout>
+
+            <EditText
+                android:layout_width="92sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/match"
+                android:textColor="#CFD8DC"
+                android:gravity="center_horizontal"
+                android:background="@drawable/background_white"
+                android:inputType="number"
+                android:textColorHint="#CFD8DC"
+                android:layout_below="@+id/matchNumTV"
+                android:layout_alignEnd="@+id/teamNumTV" />
 
 
         </RelativeLayout>

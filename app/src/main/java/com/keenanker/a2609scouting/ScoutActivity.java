@@ -120,8 +120,9 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     String autoLowString;
     String teleHighString;
     String teleLowString;
-    String cardString;
-
+    String redCardString;
+    String yellowCardString;
+    RadioButton redCard;
 
     String fullPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting";
     String scoutPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/ScoutingData";
@@ -252,13 +253,13 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.ALSucc:
                 if (checked)
-                    autoLowString = "S";
+                    autoLowString = "1";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.ALDidntTry:
                 if (checked)
-                    autoLowString = "N";
+                    autoLowString = "0";
                 //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
@@ -272,13 +273,13 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.TLDidntTry:
                 if (checked)
-                    teleLowString = "N";
+                    teleLowString = "1";
                 //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.TLSucc:
                 if (checked)
-                    teleLowString = "S";
+                    teleLowString = "0";
                 //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
                 break;
         }
@@ -292,17 +293,28 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         switch(view.getId()) {
             case R.id.yellowCard:
                 if (checked)
-                    cardString = "Y";
-                //Toast.makeText(this, "Did not attempt", Toast.LENGTH_SHORT).show();
+                    yellowCardString = "1";
                 break;
+            case R.id.noYellowCard:
+                if (checked)
+                    yellowCardString = "0";
+                break;
+        }
+    }
+    public void onRedCardButtonClicked(View view){
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
             case R.id.redCard:
                 if (checked)
-                    cardString = "R";
-                //Toast.makeText(this, "Good good  ( ͡° ͜ʖ ͡°)", Toast.LENGTH_LONG).show();
+                    redCardString = "1";
+
                 break;
-            case R.id.noCard:
+            case R.id.noRedCard:
                 if (checked)
-                    cardString = "N";
+                    redCardString = "0";
                 break;
         }
     }
@@ -331,36 +343,17 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         Random random = new Random();
         int i = random.nextInt(1000);
         titleString = "Team"  + teamNum.getText().toString()+String.valueOf(i);
-
-
-
-/*        masterString = teamNum.getText().toString() + ";"+alliance + ";" + matchNum.getText().toString() + ";" +
-                ";" + gearString + ";" + lowAutoCount + ";" + highAutoCount  + ";" + gearTeleCount +
-                ";" + lowTeleCount + ";" + highTeleCount + ";" + ";" + liftOffString //9
-                + ";" + comments.getText().toString() + ";" + humanComments.getText().toString() +
-                ";" + scoutName.getText().toString()+";"+alliance+";"+finalCount+";"+gearDroppedTeleCount
-                ;*/
+        if (yellowCardString == null){
+            yellowCardString = "0";
+        }
+        if (redCardString == null){
+            redCardString = "0";
+        }
 
         masterString =   matchNum.getText().toString() +"~" + teamNum.getText().toString()+"~"
         +gearString+"~"+autoLowString+"~"+ String.valueOf(gearTeleCount)
-        +"~"+teleLowString+"~"+liftOffString
+        +"~"+teleLowString+"~"+liftOffString+"~"+yellowCardString+"~"+redCardString
         ;
-
-
-
-        /*public class ScoutingData{
-            String scoutName;
-            int teamNum;s
-            int matchNum;
-            int lowAutoCount;
-            int lowTeleCount;
-            int highAutoCount;
-            int highTeleCount;
-            int gearTeleCount;
-            int endPos;
-            String comments;
-        }*/
-
     }
 
     public void loadFile () {
@@ -393,7 +386,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
 //Set the text
         scoutName.setText(text.toString());
     }
-
     public void makeFolder() {
 
         boolean mExternalStorageAvailable = false;
@@ -438,14 +430,9 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
             gearsTeleCountTV.setText(String.valueOf(gearTeleCount));
         }
     }
-
-
-
     public void clearButton (View view){
-
         gearTeleCount = 0;
         gearsTeleCountTV.setText(String.valueOf(gearTeleCount));
-        matchNum.setText((Integer.valueOf(String.valueOf(matchNum.getText())))+1);
         teamNum.setText("");
     }
 
@@ -502,9 +489,10 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         autoball.setChecked(true);
         RadioButton teleball = (RadioButton) findViewById(R.id.TLDidntTry);
         teleball.setChecked(true);
-        RadioButton card = (RadioButton) findViewById(R.id.noCard);
+        RadioButton card = (RadioButton) findViewById(R.id.noYellowCard);
         card.setChecked(true);
-
+        redCard = (RadioButton) findViewById(R.id.noRedCard);
+        redCard.setChecked(true);
 
         makeFolder();
 
