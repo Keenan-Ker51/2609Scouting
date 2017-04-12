@@ -150,10 +150,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         return false;
     }
 
-
-
-
-
     public static void saveFunction(File file, String[] data) {
 
 
@@ -184,7 +180,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
             }
         }
     }
-
     public void buttonSave(View view) {
         makeMaster();
         //File file = new File (path + "scouting.txt");
@@ -222,8 +217,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
 
         //Log.i("teamnum is", teamNum.getText().toString());
     }
-
-
     //Stuff that will hopefully read the drop downs
 
     public void onGearButtonClicked(View view) {
@@ -244,7 +237,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
                 break;
         }
     }
-
     public void onAutoLowButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -264,7 +256,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
                 break;
         }
     }
-
     public void onTeleLowButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -284,7 +275,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
                 break;
         }
     }
-
     public void onCardButtonClicked(View view){
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -318,7 +308,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
                 break;
         }
     }
-
     public void onLiftButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -338,7 +327,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         }
     }
 
-
     public void makeMaster() {
         Random random = new Random();
         int i = random.nextInt(1000);
@@ -349,6 +337,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
         if (redCardString == null){
             redCardString = "0";
         }
+
 
         masterString =   matchNum.getText().toString() +"~" + teamNum.getText().toString()+"~"
         +gearString+"~"+autoLowString+"~"+ String.valueOf(gearTeleCount)
