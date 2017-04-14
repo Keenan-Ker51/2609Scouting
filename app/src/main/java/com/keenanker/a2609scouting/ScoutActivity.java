@@ -93,7 +93,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     int liftoffCount = 0;
     int allianceNumber = 0;
     EditText allianceNumberET;
-    String liftOffString;
+    String liftOffString = "0";
     File file;
     File scoutFile;
     String[] saveText;
@@ -115,12 +115,12 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
     int sharedPrefMade = 1;
     String username;
 
-    String gearString;
+    String gearString = "0";
     String autoHighString;
-    String autoLowString;
+    String autoLowString = "0";
     String teleHighString;
-    String teleLowString;
-    String redCardString;
+    String teleLowString = "0";
+    String redCardString = "0";
     String yellowCardString;
     RadioButton redCard;
 
@@ -198,11 +198,7 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
             //changes
         }
         else if (Objects.equals(matchNum.getText().toString(), "")){
-            Toast.makeText(getApplicationContext(), "You are missing a team number!", Toast.LENGTH_SHORT).show();
-            //Log.i("filename", titleString);
-        }
-        else if (Objects.equals(gearString, "")){
-            Toast.makeText(getApplicationContext(), "You are missing a team number!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "You are missing a match number!", Toast.LENGTH_SHORT).show();
             //Log.i("filename", titleString);
         }
         else{
@@ -300,7 +296,6 @@ public class ScoutActivity extends AppCompatActivity implements View.OnTouchList
             case R.id.redCard:
                 if (checked)
                     redCardString = "1";
-
                 break;
             case R.id.noRedCard:
                 if (checked)
